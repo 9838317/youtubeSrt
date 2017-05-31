@@ -1,0 +1,1176 @@
+0
+00:00:00:000 --> 00:00:04:000
+This pair of videos covers NoSQL systems. The first video is going to give a
+
+1
+00:00:04:000 --> 00:00:08:000
+history and motivation for the topic, and the second video will give an overview of
+
+2
+00:00:08:000 --> 00:00:13:000
+some specific NoSQL solutions. But let me warn you right away, that the
+
+3
+00:00:13:000 --> 00:00:16:000
+area of NoSQL systems is changing rapidly, so I&amp;#39;m going to avoid giving too
+
+4
+00:00:16:000 --> 00:00:22:000
+many details so that the videos don&amp;#39;t get out of date too quickly.
+
+5
+00:00:22:000 --> 00:00:25:000
+Let&amp;#39;s start by talking about the NoSQL name itself.
+
+6
+00:00:25:000 --> 00:00:27:000
+It&amp;#39;s actually a little bit confusing and misleading, has a bit of a history to it
+
+7
+00:00:27:000 --> 00:00:30:000
+already, which we&amp;#39;ll go through, and those who invented it might be regretting
+
+8
+00:00:30:000 --> 00:00:34:000
+it a bit. But let&amp;#39;s pull it apart, and let&amp;#39;s first
+
+9
+00:00:34:000 --> 00:00:37:000
+look at SQL. In the term NoSQL, SQL is actually not
+
+10
+00:00:37:000 --> 00:00:41:000
+talking about the SQL language. What it&amp;#39;s talking about more generally is
+
+11
+00:00:41:000 --> 00:00:44:000
+traditional relational data base management systems, which do have the
+
+12
+00:00:44:000 --> 00:00:49:000
+SQL language, but have a whole bunch of other aspects to them as well.
+
+13
+00:00:49:000 --> 00:00:52:000
+Over the past decade or so, there have been a number of new data management and
+
+14
+00:00:52:000 --> 00:00:58:000
+analysis problems that have cropped up, and we&amp;#39;ll talk about some of those.
+
+15
+00:00:58:000 --> 00:01:01:000
+Where a traditional relational database management system might not be the best
+
+16
+00:01:01:000 --> 00:01:05:000
+solution for those problems, and again we&amp;#39;ll talk about that as well.
+
+17
+00:01:05:000 --> 00:01:09:000
+So, NoSQL termed when you take it apart to mean NoSQL, is saying that for
+
+18
+00:01:09:000 --> 00:01:16:000
+some problems, we might not want to use a traditional relational database system.
+
+19
+00:01:16:000 --> 00:01:20:000
+It&amp;#39;s not talking about this Sequel language itself, not picking on that but
+
+20
+00:01:20:000 --> 00:01:25:000
+again Talking about the whole trappings of the traditional system.
+
+21
+00:01:25:000 --> 00:01:29:000
+Now while pretty much everyone agrees that for some problems, a traditional
+
+22
+00:01:29:000 --> 00:01:33:000
+relational database management system isn&amp;#39;t the best solution, there are still
+
+23
+00:01:33:000 --> 00:01:36:000
+a whole lot of problems for which it is, and so people now like to say, well
+
+24
+00:01:36:000 --> 00:01:43:000
+Problems aren&amp;#39;t exclusively solved by traditional relational database systems.
+
+25
+00:01:43:000 --> 00:01:45:000
+They might be solved by traditional database systems for some portion of
+
+26
+00:01:45:000 --> 00:01:48:000
+them. And by some other solution for other
+
+27
+00:01:48:000 --> 00:01:52:000
+portions of the problem. And for that reason, NoSQL has actually
+
+28
+00:01:52:000 --> 00:01:56:000
+come to mean, and this is now the accepted definition, not only SQL, but
+
+29
+00:01:56:000 --> 00:02:00:000
+again, with SQL itself actually referring to traditional relational database
+
+30
+00:02:00:000 --> 00:02:05:000
+management systems. So what&amp;#39;s wrong with a traditional
+
+31
+00:02:05:000 --> 00:02:09:000
+relational database system? Well, the primary issue is that it&amp;#39;s a
+
+32
+00:02:09:000 --> 00:02:13:000
+big package with all kinds of features. And in many cases, though having all
+
+33
+00:02:13:000 --> 00:02:16:000
+those features in one place is a great thing, but sometimes we don&amp;#39;t need all of
+
+34
+00:02:16:000 --> 00:02:21:000
+the features and it can actually be advantageous to drop some of those.
+
+35
+00:02:21:000 --> 00:02:24:000
+Now, what are those features? I&amp;#39;m going to wind all the way back to the
+
+36
+00:02:24:000 --> 00:02:28:000
+introductory video to these materials, where we talked about database management
+
+37
+00:02:28:000 --> 00:02:32:000
+systems and all the great things they provide.
+
+38
+00:02:32:000 --> 00:02:36:000
+And actually I&amp;#39;ve copied this directly from my very first set of slides.
+
+39
+00:02:36:000 --> 00:02:41:000
+That tells us that a database management system provides great things, efficiency,
+
+40
+00:02:41:000 --> 00:02:45:000
+reliability, convenience, a safety multi-user, access to massive amounts of
+
+41
+00:02:45:000 --> 00:02:50:000
+persistent data. So let&amp;#39;s analyze these adjectives a
+
+42
+00:02:50:000 --> 00:02:53:000
+little bit more. Let&amp;#39;s start by talking about convenience,
+
+43
+00:02:53:000 --> 00:02:57:000
+and let me give 3 aspects of a traditional database system that lead to
+
+44
+00:02:57:000 --> 00:03:02:000
+its convenience to use for an application.
+
+45
+00:03:02:000 --> 00:03:04:000
+So here they are. A simple data model, declarative query
+
+46
+00:03:04:000 --> 00:03:09:000
+language and transaction guarantees. And these 3 components of a database
+
+47
+00:03:09:000 --> 00:03:14:000
+system are one of the reasons that they are really good for certain applications.
+
+48
+00:03:14:000 --> 00:03:18:000
+Because you can put your data in an understandable way, you can query it
+
+49
+00:03:18:000 --> 00:03:22:000
+using a language that&amp;#39;s easy to write yet very powerful.
+
+50
+00:03:22:000 --> 00:03:26:000
+And you get guarantees about what happens if the system crashes or if multiple
+
+51
+00:03:26:000 --> 00:03:31:000
+users are using it at the same time. So the relational data model is great
+
+52
+00:03:31:000 --> 00:03:33:000
+because the data is organized into tables.
+
+53
+00:03:33:000 --> 00:03:36:000
+We have an understandable algebra over relations, and that algebra forms the
+
+54
+00:03:36:000 --> 00:03:41:000
+basis of the query language, and everything fits neatly into a package.
+
+55
+00:03:41:000 --> 00:03:45:000
+The problem comes when our data doesn&amp;#39;t fit so neatly into that package.
+
+56
+00:03:45:000 --> 00:03:48:000
+And if we insist on using the relational model, and our data isn&amp;#39;t very
+
+57
+00:03:48:000 --> 00:03:52:000
+relational, then there has to be some process of organizing the data before we
+
+58
+00:03:52:000 --> 00:03:57:000
+can say, load it into the tables of our system.
+
+59
+00:03:57:000 --> 00:03:59:000
+The SQL language is great because it&amp;#39;s very powerful.
+
+60
+00:03:59:000 --> 00:04:04:000
+It includes selections, projections, joins aggregation, all kinds of set
+
+61
+00:04:04:000 --> 00:04:07:000
+operators. useful predicates and so on, but what if
+
+62
+00:04:07:000 --> 00:04:11:000
+that query language is much more than what we need?
+
+63
+00:04:11:000 --> 00:04:14:000
+Maybe we only need to do simple fetches of records based on, key values, for
+
+64
+00:04:14:000 --> 00:04:17:000
+example. In that case, using a system that
+
+65
+00:04:17:000 --> 00:04:21:000
+supports the complicated language, may be, again, more than we actually need.
+
+66
+00:04:21:000 --> 00:04:26:000
+And similarly, transaction guarantees are, terrific when we have lots of users
+
+67
+00:04:26:000 --> 00:04:31:000
+hitting a system at the same time. And we have very strict requirements on
+
+68
+00:04:31:000 --> 00:04:35:000
+consistency, but if our requirements are a lot less, even the weakest guarantees,
+
+69
+00:04:35:000 --> 00:04:39:000
+that are made by the traditional database systems might not be appropriate for
+
+70
+00:04:39:000 --> 00:04:43:000
+application. And we&amp;#39;re going to see examples of all of
+
+71
+00:04:43:000 --> 00:04:46:000
+these things. So the next attribute, multi-user, ties
+
+72
+00:04:46:000 --> 00:04:49:000
+right into our discussion of transaction guarantees.
+
+73
+00:04:49:000 --> 00:04:52:000
+Again, for some applications, we might not need to maintain the level of
+
+74
+00:04:52:000 --> 00:04:56:000
+consistency when multiple users are operating on the database at the same
+
+75
+00:04:56:000 --> 00:05:00:000
+time, that traditional systems are designed for.
+
+76
+00:05:00:000 --> 00:05:04:000
+Next attribute, safety. safety is both from a, an authorization
+
+77
+00:05:04:000 --> 00:05:07:000
+standpoint and from an attacker&amp;#39;s standpoint.
+
+78
+00:05:07:000 --> 00:05:11:000
+And you know safety is not that different a concern in these NoSQL type
+
+79
+00:05:11:000 --> 00:05:14:000
+applications than in traditional applications.
+
+80
+00:05:14:000 --> 00:05:18:000
+Although in some cases, the NoSQL solutions we&amp;#39;re going to discuss are used
+
+81
+00:05:18:000 --> 00:05:22:000
+more to process data offline and in a batch mode, in which case safety in terms
+
+82
+00:05:22:000 --> 00:05:25:000
+of authorization or even attack is much less of an issue than say, a database
+
+83
+00:05:25:000 --> 00:05:31:000
+system that&amp;#39;s sitting behind a deployed website.
+
+84
+00:05:31:000 --> 00:05:35:000
+Persistence is something that&amp;#39;s provided by database systems, and persistence is
+
+85
+00:05:35:000 --> 00:05:39:000
+certainly something important in NoSQL type applications as well.
+
+86
+00:05:39:000 --> 00:05:43:000
+Although, for NoSQL, we&amp;#39;ll see that files are often okay, as a storage mechanism
+
+87
+00:05:43:000 --> 00:05:47:000
+rather than specialized structures that are typically implemented in a database
+
+88
+00:05:47:000 --> 00:05:50:000
+system. Reliability, again is something we&amp;#39;re
+
+89
+00:05:50:000 --> 00:05:53:000
+certainly going to want in any data management application, but again the
+
+90
+00:05:53:000 --> 00:05:57:000
+considerations are a little different in certain types of applications, say the
+
+91
+00:05:57:000 --> 00:06:02:000
+batch data analysis applications. Or it might be just okay to completely
+
+92
+00:06:02:000 --> 00:06:07:000
+redo the entire, say, processing of the data, where that wouldn&amp;#39;t be the case if
+
+93
+00:06:07:000 --> 00:06:12:000
+you had an operational database sitting behind a website.
+
+94
+00:06:12:000 --> 00:06:16:000
+Now the last two adjectives, on the other hand, are on the other end of spectrum.
+
+95
+00:06:16:000 --> 00:06:19:000
+One of the reasons for NoSQL solutions is that the data being handled
+
+96
+00:06:19:000 --> 00:06:23:000
+these days is much, much more massive than the amount of data that the
+
+97
+00:06:23:000 --> 00:06:28:000
+traditional relational database systems were designed for.
+
+98
+00:06:28:000 --> 00:06:32:000
+part of the reason is that the cost of hardware&amp;#39;s gone down and so people are
+
+99
+00:06:32:000 --> 00:06:36:000
+just saving much more data. and then again another reason of course
+
+100
+00:06:36:000 --> 00:06:40:000
+are websites such as Facebook and tweeter and so on that are just collecting data
+
+101
+00:06:40:000 --> 00:06:45:000
+from enormous numbers of users at enormous rates.
+
+102
+00:06:45:000 --> 00:06:49:000
+And those same websites, by the way, have efficiency requirements that are much,
+
+103
+00:06:49:000 --> 00:06:54:000
+much higher than we&amp;#39;ve seen in the past. So we have these millions billions of, of
+
+104
+00:06:54:000 --> 00:06:58:000
+records, and we expect a response time of under a second for fairly complex
+
+105
+00:06:58:000 --> 00:07:03:000
+operations overloads. So again, these are areas where NoSQL
+
+106
+00:07:03:000 --> 00:07:09:000
+systems want to increase the adjectives where the, earlier ones, we want to sort
+
+107
+00:07:09:000 --> 00:07:14:000
+of decrease what they&amp;#39;re offering. So, in some sense, you can almost think
+
+108
+00:07:14:000 --> 00:07:18:000
+of NoSQL systems as compromising on some of these earlier ones, in order to
+
+109
+00:07:18:000 --> 00:07:23:000
+boost some of the later ones. So with that motivation, now let&amp;#39;s talk
+
+110
+00:07:23:000 --> 00:07:26:000
+about the NoSQL systems. So they are, as I&amp;#39;ve said, an alternative
+
+111
+00:07:26:000 --> 00:07:30:000
+to a traditional relational database system for managing and analyzing large
+
+112
+00:07:30:000 --> 00:07:33:000
+amounts of data. At the highest level, here are the
+
+113
+00:07:33:000 --> 00:07:37:000
+attributes that are provided in NoSQL systems.
+
+114
+00:07:37:000 --> 00:07:42:000
+So first of all, a more flexible schema than the rigid relational model.
+
+115
+00:07:42:000 --> 00:07:46:000
+Second of all, and I really hesitate to say this, but they tend to be a bit
+
+116
+00:07:46:000 --> 00:07:51:000
+quicker and a bit cheaper to set up for a particular application.
+
+117
+00:07:51:000 --> 00:07:55:000
+Now that may change over time, but that&amp;#39;s the word on the street as of this moment.
+
+118
+00:07:55:000 --> 00:08:01:000
+Third, as I already motivated, they are designed for massive scalability and that
+
+119
+00:08:01:000 --> 00:08:06:000
+means massive both in the amount of data and also with the efficiency of the
+
+120
+00:08:06:000 --> 00:08:13:000
+operations on that data. And lastly, they don&amp;#39;t necessarily have
+
+121
+00:08:13:000 --> 00:08:17:000
+transactional guarentees. In general what they do is relax the
+
+122
+00:08:17:000 --> 00:08:21:000
+consistency that&amp;#39;s offered by the system And, in turn, gain higher performance and
+
+123
+00:08:21:000 --> 00:08:27:000
+higher availability of the system. So these systems do tend to be used for
+
+124
+00:08:27:000 --> 00:08:30:000
+applications that have strict requirements, both in how fast they can
+
+125
+00:08:30:000 --> 00:08:35:000
+do things and in being up all the time. Now, of course, there&amp;#39;s a downside, and
+
+126
+00:08:35:000 --> 00:08:38:000
+again this is just at the very highest level.
+
+127
+00:08:38:000 --> 00:08:41:000
+Different, NoSQL systems address things in different ways.
+
+128
+00:08:41:000 --> 00:08:45:000
+On the downside, they tend not to have a dec, declarative query language.
+
+129
+00:08:45:000 --> 00:08:48:000
+So one of the benefits of a traditional system is being able to write.
+
+130
+00:08:48:000 --> 00:08:52:000
+Add hot queries in a very nice high level language, change your mind about what you
+
+131
+00:08:52:000 --> 00:08:56:000
+want to write and make changes easily, explore the database in lots of different
+
+132
+00:08:56:000 --> 00:08:59:000
+ways just with these simple queries, so in those SQL systems, the lack of
+
+133
+00:08:59:000 --> 00:09:04:000
+declarative query language does mean that there&amp;#39;s more direct programmig Involved
+
+134
+00:09:04:000 --> 00:09:08:000
+in manipulating the data and another downside is the relaxed consistency does
+
+135
+00:09:08:000 --> 00:09:12:000
+mean there are fewer guarantees, so for applications that have very strict that
+
+136
+00:09:12:000 --> 00:09:15:000
+need very strict guarantees about the consistency of the data or say the
+
+137
+00:09:15:000 --> 00:09:19:000
+serialized ability of operations on the data, no sequal systems are probably not
+
+138
+00:09:19:000 --> 00:09:29:000
+a good idea. So the remainder of the video is just
+
+139
+00:09:29:000 --> 00:09:32:000
+going to go through a set of examples to motivate, the cases where we might want
+
+140
+00:09:32:000 --> 00:09:35:000
+to use a NoSQL system and the reasons that it might be difficult to use a
+
+141
+00:09:35:000 --> 00:09:40:000
+traditional system. They&amp;#39;re all sort of simplified made-up
+
+142
+00:09:40:000 --> 00:09:43:000
+examples, but I do think they give the overall idea.
+
+143
+00:09:43:000 --> 00:09:47:000
+So the first example is an application where we have a large number of logs of
+
+144
+00:09:47:000 --> 00:09:52:000
+web activity and we want to analyze those logs in various ways.
+
+145
+00:09:52:000 --> 00:09:56:000
+Let&amp;#39;s assume that when a web log is written there&amp;#39;s a set of records for each
+
+146
+00:09:56:000 --> 00:10:00:000
+access, and that record is going to report that a particular user with a
+
+147
+00:10:00:000 --> 00:10:05:000
+given user ID accessed a particular URL at a particular time.
+
+148
+00:10:05:000 --> 00:10:09:000
+And then we might have some additional information associated with that access,
+
+149
+00:10:09:000 --> 00:10:13:000
+maybe something about the user or whether it was converted into a purchase or where
+
+150
+00:10:13:000 --> 00:10:17:000
+the user went next. All kinds of possible things we might
+
+151
+00:10:17:000 --> 00:10:20:000
+want to include in there, and actually, that additional info might change over
+
+152
+00:10:20:000 --> 00:10:24:000
+time. So let&amp;#39;s suppose that we&amp;#39;re going to work
+
+153
+00:10:24:000 --> 00:10:27:000
+with our web log data in a traditional database system.
+
+154
+00:10:27:000 --> 00:10:31:000
+The first test then would be to get the data loaded into the system.
+
+155
+00:10:31:000 --> 00:10:34:000
+And this is one of the first problems with relational systems is that there
+
+156
+00:10:34:000 --> 00:10:38:000
+might be quite a bit of work involved in taking data like this that might not be
+
+157
+00:10:38:000 --> 00:10:43:000
+perfectly organized and getting it into a relational system.
+
+158
+00:10:43:000 --> 00:10:47:000
+For example, we might want to do some amount of data cleaning.
+
+159
+00:10:47:000 --> 00:10:50:000
+data cleaning refers to finding say errors, or is, inconsistencies in the
+
+160
+00:10:50:000 --> 00:10:55:000
+data, and resolving those. For example, maybe our time stamps are in
+
+161
+00:10:55:000 --> 00:10:57:000
+multiple formats and we need to resolve them.
+
+162
+00:10:57:000 --> 00:11:01:000
+Maybe some of our URLs are invalid. So, we go through a data cleaning
+
+163
+00:11:01:000 --> 00:11:05:000
+process. The next thing we might want to do is
+
+164
+00:11:05:000 --> 00:11:10:000
+some amount of data extraction. So let&amp;#39;s take a look at this additional
+
+165
+00:11:10:000 --> 00:11:12:000
+information. So this might be in a structured,
+
+166
+00:11:12:000 --> 00:11:16:000
+semi-structured, or free text format, but if we&amp;#39;re going to load into a database
+
+167
+00:11:16:000 --> 00:11:19:000
+system then we&amp;#39;re probably going to need to extract the relevant fields from that
+
+168
+00:11:19:000 --> 00:11:25:000
+information and get that formatted so we can load it into a table.
+
+169
+00:11:25:000 --> 00:11:28:000
+We might also do some amount of verification, maybe checking that all the
+
+170
+00:11:28:000 --> 00:11:32:000
+URLs are valid,. And then finally we have to devise,
+
+171
+00:11:32:000 --> 00:11:38:000
+design some kind of schema, or specify a schema, and then get the data loaded in.
+
+172
+00:11:38:000 --> 00:11:41:000
+Now proponents of NoSQL systems will tell you &amp;quot;Hey, you don&amp;#39;t have to do any
+
+173
+00:11:41:000 --> 00:11:45:000
+of that. You can just do nothing and immediately
+
+174
+00:11:45:000 --> 00:11:49:000
+start operating on the data directly out of say the file where it&amp;#39;s stored.
+
+175
+00:11:49:000 --> 00:11:53:000
+And that sort of comes back to the idea that you can get up and running more
+
+176
+00:11:53:000 --> 00:11:58:000
+quickly on a NoSQL system. Now of course, there&amp;#39;s no free lunch or
+
+177
+00:11:58:000 --> 00:12:01:000
+pay me now pay me later. The reality is of course when you
+
+178
+00:12:01:000 --> 00:12:05:000
+actually start processing the data, you are going to have to embed somewhere in
+
+179
+00:12:05:000 --> 00:12:10:000
+there these same basic operations to get the data cleaned up and usable.
+
+180
+00:12:10:000 --> 00:12:13:000
+But those would occur during the processing of the data.
+
+181
+00:12:13:000 --> 00:12:16:000
+And if there&amp;#39;s some portions of the data that you&amp;#39;re not operating on, you can
+
+182
+00:12:16:000 --> 00:12:21:000
+just leave those in place without doing the clean up of that portion of the data.
+
+183
+00:12:21:000 --> 00:12:24:000
+Now, let&amp;#39;s look at the type of operations we might want to preform over this data.
+
+184
+00:12:24:000 --> 00:12:28:000
+It might be very simple things. We might say just want to find all
+
+185
+00:12:28:000 --> 00:12:33:000
+records that correspond to a given user. Or maybe we want to find all accesses of
+
+186
+00:12:33:000 --> 00:12:38:000
+a given URL, or everything that happened at a particular point in time.
+
+187
+00:12:38:000 --> 00:12:42:000
+Now, none of these things require SQL, ooh, NoSQL, but of course, that&amp;#39;s not
+
+188
+00:12:42:000 --> 00:12:47:000
+what NoSQL stands for. But these all just require finding you
+
+189
+00:12:47:000 --> 00:12:51:000
+know, a set of records based on a single value.
+
+190
+00:12:51:000 --> 00:12:54:000
+Or we might want to look for some special construct that appears inside the
+
+191
+00:12:54:000 --> 00:12:58:000
+additional information, which the SQL language, again, is not particularly
+
+192
+00:12:58:000 --> 00:13:02:000
+designed to do. The other thing to notice about all of
+
+193
+00:13:02:000 --> 00:13:05:000
+these operations is that they are highly parallelizable.
+
+194
+00:13:05:000 --> 00:13:11:000
+Each one of them, in fact, is just looking at the individual records.
+
+195
+00:13:11:000 --> 00:13:15:000
+We could do everything in parallel. And exploiting parallelism when you have
+
+196
+00:13:15:000 --> 00:13:19:000
+simple operations is one of the, important aspects of most NoSQL
+
+197
+00:13:19:000 --> 00:13:23:000
+solutions. Here&amp;#39;s an operation I came up with
+
+198
+00:13:23:000 --> 00:13:27:000
+because it does look like it requires a relational joint.
+
+199
+00:13:27:000 --> 00:13:33:000
+Let&amp;#39;s say that we want to find all pairs of users that have acessed the same URL.
+
+200
+00:13:33:000 --> 00:13:36:000
+In fact, back in the SQL videos, I gave several examples like this.
+
+201
+00:13:36:000 --> 00:13:42:000
+This is essentially a self-join over two instances of a table or, two instances of
+
+202
+00:13:42:000 --> 00:13:46:000
+the web logs. So this looks like maybe we actually do
+
+203
+00:13:46:000 --> 00:13:49:000
+need a SQL-like solution, but I&amp;#39;m going to argue that this is actually kind
+
+204
+00:13:49:000 --> 00:13:53:000
+of a weird query, and it&amp;#39;s fairly unlikely that we would be doing this one
+
+205
+00:13:53:000 --> 00:13:57:000
+on a regular basis. Now, let&amp;#39;s make our data scenario
+
+206
+00:13:57:000 --> 00:14:00:000
+slightly more complicated. In addition to the web log, let&amp;#39;s suppose
+
+207
+00:14:00:000 --> 00:14:04:000
+that we have separate records with information about users.
+
+208
+00:14:04:000 --> 00:14:07:000
+So we have the user ID, maybe the name, age, gender, and some other attributes of
+
+209
+00:14:07:000 --> 00:14:11:000
+the users. And now, suppose our task is to take a
+
+210
+00:14:11:000 --> 00:14:18:000
+given URL and determine the average age of the users who have accessed that URL.
+
+211
+00:14:18:000 --> 00:14:22:000
+Okay, well this is a very, I would argue, SQL-like query.
+
+212
+00:14:22:000 --> 00:14:26:000
+So it&amp;#39;s nice in this case to have a language somewhat like SQL.
+
+213
+00:14:26:000 --> 00:14:30:000
+But I&amp;#39;ll still say that some aspects of NoSQL solutions may be relevant to this
+
+214
+00:14:30:000 --> 00:14:34:000
+task, and in particular, it&amp;#39;s the question of consistency.
+
+215
+00:14:34:000 --> 00:14:38:000
+If we&amp;#39;re using, if we&amp;#39;re analyzing a huge amount of data and we&amp;#39;re just looking for
+
+216
+00:14:38:000 --> 00:14:41:000
+some type of average, some type of statistical information over that data it
+
+217
+00:14:41:000 --> 00:14:47:000
+might not be required that we have absolute consistency.
+
+218
+00:14:47:000 --> 00:14:50:000
+In fact it might even be okay if we count some accesses to URL&amp;#39;s that were at a
+
+219
+00:14:50:000 --> 00:14:54:000
+certain time, and we completely missed some from an earlier time just because
+
+220
+00:14:54:000 --> 00:15:00:000
+the database might be fragmented and, and inconsistent.
+
+221
+00:15:00:000 --> 00:15:04:000
+And, that&amp;#39;s, that&amp;#39;s again probably okay for this application, so to summarize the
+
+222
+00:15:04:000 --> 00:15:08:000
+weblog application, it might be somewhat difficult to get web access records into
+
+223
+00:15:08:000 --> 00:15:12:000
+a relational database system. It might be easier to use them in their
+
+224
+00:15:12:000 --> 00:15:16:000
+filed format and extract the information when we need it.
+
+225
+00:15:16:000 --> 00:15:20:000
+many of the operations that we perform, maybe extremely simply, just fetching a
+
+226
+00:15:20:000 --> 00:15:24:000
+set of records based on a value, and also highly parallelizable.
+
+227
+00:15:24:000 --> 00:15:28:000
+And even for the more complicated analyses that we might do, we may not
+
+228
+00:15:28:000 --> 00:15:34:000
+need strict consistency accessing say, a very specific snapshot of the data.
+
+229
+00:15:34:000 --> 00:15:37:000
+Now let&amp;#39;s take a look at another application, let&amp;#39;s say the friends
+
+230
+00:15:37:000 --> 00:15:41:000
+relationship in a social network, which generates a graph when a user is
+
+231
+00:15:41:000 --> 00:15:47:000
+represented by nodes, and say the friend relation is represented by edges.
+
+232
+00:15:47:000 --> 00:15:51:000
+So each record is going to have 2 user ID&amp;#39;s.
+
+233
+00:15:51:000 --> 00:15:55:000
+That says that one user is friends with another, and then we&amp;#39;ll have separate
+
+234
+00:15:55:000 --> 00:15:58:000
+records with information about users, the user ID, maybe again their name, age and
+
+235
+00:15:58:000 --> 00:16:02:000
+gender and so forth. And let&amp;#39;s imagine this is an extremely
+
+236
+00:16:02:000 --> 00:16:05:000
+large social graph. What kind of operations might we want to
+
+237
+00:16:05:000 --> 00:16:08:000
+perform? Well, one of them is to find all the
+
+238
+00:16:08:000 --> 00:16:12:000
+friends of the given user, and so that&amp;#39;s pretty straightforward.
+
+239
+00:16:12:000 --> 00:16:15:000
+Again, we are just fetching the set of user 2&amp;#39;s that are associated with a given
+
+240
+00:16:15:000 --> 00:16:19:000
+user 1. So not an operation that requires a
+
+241
+00:16:19:000 --> 00:16:25:000
+complicated query language. On the other hand what if we are looking
+
+242
+00:16:25:000 --> 00:16:28:000
+for all friends of friends of a given user.
+
+243
+00:16:28:000 --> 00:16:33:000
+Actually now, we do require a joint operation in order to do that.
+
+244
+00:16:33:000 --> 00:16:37:000
+And furthermore, what if we want to find all women friends of men friends of a
+
+245
+00:16:37:000 --> 00:16:40:000
+given user? In that case, we&amp;#39;re going to need a
+
+246
+00:16:40:000 --> 00:16:44:000
+couple instances of the friend relationship, and we&amp;#39;re going to need to
+
+247
+00:16:44:000 --> 00:16:51:000
+join that with a couple instances actually of the user information as well.
+
+248
+00:16:51:000 --> 00:16:54:000
+So, this is starting to look more, a little bit more SQL-like.
+
+249
+00:16:54:000 --> 00:16:57:000
+But, maybe we don&amp;#39;t need the full power of the language, because we can see that
+
+250
+00:16:57:000 --> 00:17:01:000
+there&amp;#39;s a certain sort of pattern to the types of operations we&amp;#39;re doing.
+
+251
+00:17:01:000 --> 00:17:05:000
+And of course, the problem comes when we want friends, of friends, of friends, of
+
+252
+00:17:05:000 --> 00:17:09:000
+a given user. In that case, we&amp;#39;re doing large number of
+
+253
+00:17:09:000 --> 00:17:12:000
+joins, and large numbers of joins tend not to be not that efficient in
+
+254
+00:17:12:000 --> 00:17:17:000
+relational data base systems, even when you use recursive SQL.
+
+255
+00:17:17:000 --> 00:17:21:000
+So, in addition to this type of operation being not necessarily suitable for SQL, a
+
+256
+00:17:21:000 --> 00:17:26:000
+second attribute that we probably don&amp;#39;t need again in this environment is
+
+257
+00:17:26:000 --> 00:17:30:000
+consistency. because we probably don&amp;#39;t care that much
+
+258
+00:17:30:000 --> 00:17:34:000
+whether we get an exact snapshot of the database, if things are changing.
+
+259
+00:17:34:000 --> 00:17:39:000
+Typically, for these types of analyses, approximate solutions are acceptable.
+
+260
+00:17:39:000 --> 00:17:43:000
+So these types of operations suggest that we might want to have a special type of
+
+261
+00:17:43:000 --> 00:17:47:000
+database system that&amp;#39;s suitable for graph operations on very large scale, and in
+
+262
+00:17:47:000 --> 00:17:51:000
+fact graph databases are one type of NoSQL solution that we will talk about in
+
+263
+00:17:51:000 --> 00:17:57:000
+the next video. And finally, my last example is Wikipedia
+
+264
+00:17:57:000 --> 00:18:00:000
+pages. If you think of Wikipedia, it&amp;#39;s a large
+
+265
+00:18:00:000 --> 00:18:05:000
+collection of documents, extremely large. And inside each document, there&amp;#39;s
+
+266
+00:18:05:000 --> 00:18:08:000
+typically a combination of some structured data inside boxes that has
+
+267
+00:18:08:000 --> 00:18:12:000
+say, key valued pairs. And then on the structured data, which
+
+268
+00:18:12:000 --> 00:18:16:000
+might be fairly large volumes of text, a type of task we might want to do is say
+
+269
+00:18:16:000 --> 00:18:20:000
+retrieve the first paragraph, the text paragraph, in all pages where we look in
+
+270
+00:18:20:000 --> 00:18:24:000
+the structure data and find out that the page is about a United States president,
+
+271
+00:18:24:000 --> 00:18:31:000
+say before 1900. clearly this is not very suitable for
+
+272
+00:18:31:000 --> 00:18:35:000
+loading into a relational database and querying in that fashion, again because
+
+273
+00:18:35:000 --> 00:18:40:000
+of the mix of structured and unstructured information.
+
+274
+00:18:40:000 --> 00:18:46:000
+And once more, consistency is probably not critical in this environment as well.
+
+275
+00:18:46:000 --> 00:18:49:000
+As we&amp;#39;ll see, another type of NoSQL solution is called the document database
+
+276
+00:18:49:000 --> 00:18:54:000
+system which can be more appropriate for this type of application.
+
+277
+00:18:54:000 --> 00:18:57:000
+So to summarize, NoSQL systems provide an alternative to using a traditional
+
+278
+00:18:57:000 --> 00:19:02:000
+database management system for certain types of applications.
+
+279
+00:19:02:000 --> 00:19:06:000
+NoSQL systems provide a flexible schema which can be useful when its not easy to
+
+280
+00:19:06:000 --> 00:19:10:000
+get the data into a structured table format.
+
+281
+00:19:10:000 --> 00:19:12:000
+They can be quicker and cheaper to set up.
+
+282
+00:19:12:000 --> 00:19:16:000
+So you might be able to get going faster on actually analyzing your data and maybe
+
+283
+00:19:16:000 --> 00:19:19:000
+for less cost. a bit debatable, but that&amp;#39;s the word on
+
+284
+00:19:19:000 --> 00:19:22:000
+the street right now. They do provide massive scalability.
+
+285
+00:19:22:000 --> 00:19:26:000
+So they&amp;#39;re generally used for very, very large applications.
+
+286
+00:19:26:000 --> 00:19:30:000
+Often applications that don&amp;#39;t require the amount of consistency that a traditional
+
+287
+00:19:30:000 --> 00:19:33:000
+system provides, and by relaxing the amount of consistency, they&amp;#39;ll give you
+
+288
+00:19:33:000 --> 00:19:38:000
+better performance, higher availability. The downsides of the this system tend to
+
+289
+00:19:38:000 --> 00:19:40:000
+be the lack of a declarative query language.
+
+290
+00:19:40:000 --> 00:19:44:000
+That means more programming is generally involved when using the systems, and
+
+291
+00:19:44:000 --> 00:19:47:000
+fewer guarantees are provided about consistency.
+
+292
+00:19:47:000 --> 00:19:51:000
+In the next video we&amp;#39;ll specific NoSQL solutions and how they embody the
+
+293
+00:19:51:000 --> 00:19:55:000
+adjectives that I&amp;#39;ve included here.
+
