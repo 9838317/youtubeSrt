@@ -1,1176 +1,3244 @@
 0
-00:00:00:000 --> 00:00:04:000
-This pair of videos covers NoSQL systems. The first video is going to give a
+00:00:00:000 --> 00:00:03:000
+This video provides an overview of some NoSQL systems.
 
 1
-00:00:04:000 --> 00:00:08:000
-history and motivation for the topic, and the second video will give an overview of
+00:00:04:000 --> 00:00:07:000
+I want to say right up front that it&#39;s being made in November, 2011.
 
 2
-00:00:08:000 --> 00:00:13:000
-some specific NoSQL solutions. But let me warn you right away, that the
+00:00:08:000 --> 00:00:09:000
+This is a field
 
 3
-00:00:13:000 --> 00:00:16:000
-area of NoSQL systems is changing rapidly, so I&amp;#39;m going to avoid giving too
+00:00:09:000 --> 00:00:10:000
+that&#39;s changing very fast, so
 
 4
-00:00:16:000 --> 00:00:22:000
-many details so that the videos don&amp;#39;t get out of date too quickly.
+00:00:11:000 --> 00:00:12:000
+this is an overview of what&#39;s
 
 5
-00:00:22:000 --> 00:00:25:000
-Let&amp;#39;s start by talking about the NoSQL name itself.
+00:00:12:000 --> 00:00:14:000
+going on right now.
 
 6
-00:00:25:000 --> 00:00:27:000
-It&amp;#39;s actually a little bit confusing and misleading, has a bit of a history to it
+00:00:14:000 --> 00:00:15:000
+As a reminder from the previous
 
 7
-00:00:27:000 --> 00:00:30:000
-already, which we&amp;#39;ll go through, and those who invented it might be regretting
+00:00:15:000 --> 00:00:17:000
+video, NoSQL systems have
 
 8
-00:00:30:000 --> 00:00:34:000
-it a bit. But let&amp;#39;s pull it apart, and let&amp;#39;s first
+00:00:17:000 --> 00:00:19:000
+arisen because it was recognized that
 
 9
-00:00:34:000 --> 00:00:37:000
-look at SQL. In the term NoSQL, SQL is actually not
+00:00:19:000 --> 00:00:21:000
+not every problem involving large
 
 10
-00:00:37:000 --> 00:00:41:000
-talking about the SQL language. What it&amp;#39;s talking about more generally is
+00:00:21:000 --> 00:00:23:000
+scale management or analysis of
 
 11
-00:00:41:000 --> 00:00:44:000
-traditional relational data base management systems, which do have the
+00:00:23:000 --> 00:00:24:000
+data was best solved
 
 12
-00:00:44:000 --> 00:00:49:000
-SQL language, but have a whole bunch of other aspects to them as well.
+00:00:25:000 --> 00:00:26:000
+by using a relational database system.
 
 13
-00:00:49:000 --> 00:00:52:000
-Over the past decade or so, there have been a number of new data management and
+00:00:27:000 --> 00:00:29:000
+Some problems still are, but
 
 14
-00:00:52:000 --> 00:00:58:000
-analysis problems that have cropped up, and we&amp;#39;ll talk about some of those.
+00:00:29:000 --> 00:00:30:000
+there are others that are more suitable
 
 15
-00:00:58:000 --> 00:01:01:000
-Where a traditional relational database management system might not be the best
+00:00:30:000 --> 00:00:32:000
+for a different type of system that we&#39;re going to talk about.
 
 16
-00:01:01:000 --> 00:01:05:000
-solution for those problems, and again we&amp;#39;ll talk about that as well.
+00:00:33:000 --> 00:00:35:000
+NoSQL as a term
 
 17
-00:01:05:000 --> 00:01:09:000
-So, NoSQL termed when you take it apart to mean NoSQL, is saying that for
+00:00:35:000 --> 00:00:37:000
+has evolved to mean not
 
 18
-00:01:09:000 --> 00:01:16:000
-some problems, we might not want to use a traditional relational database system.
+00:00:37:000 --> 00:00:39:000
+only SQL, where SQL
 
 19
-00:01:16:000 --> 00:01:20:000
-It&amp;#39;s not talking about this Sequel language itself, not picking on that but
+00:00:39:000 --> 00:00:40:000
+doesn&#39;t really mean the SQL language,
 
 20
-00:01:20:000 --> 00:01:25:000
-again Talking about the whole trappings of the traditional system.
+00:00:40:000 --> 00:00:43:000
+but it means a traditional database management system.
 
 21
-00:01:25:000 --> 00:01:29:000
-Now while pretty much everyone agrees that for some problems, a traditional
+00:00:44:000 --> 00:00:45:000
+Again, as a reminder from the
 
 22
-00:01:29:000 --> 00:01:33:000
-relational database management system isn&amp;#39;t the best solution, there are still
+00:00:45:000 --> 00:00:46:000
+previous video, the NoSQL
 
 23
-00:01:33:000 --> 00:01:36:000
-a whole lot of problems for which it is, and so people now like to say, well
+00:00:47:000 --> 00:00:48:000
+systems are different from
 
 24
-00:01:36:000 --> 00:01:43:000
-Problems aren&amp;#39;t exclusively solved by traditional relational database systems.
+00:00:49:000 --> 00:00:50:000
+traditional systems in that they
 
 25
-00:01:43:000 --> 00:01:45:000
-They might be solved by traditional database systems for some portion of
+00:00:50:000 --> 00:00:53:000
+tend to provide a flexible schema rather than a rigid structure.
 
 26
-00:01:45:000 --> 00:01:48:000
-them. And by some other solution for other
+00:00:54:000 --> 00:00:56:000
+They tend to be quicker or cheaper, or both, to set up.
 
 27
-00:01:48:000 --> 00:01:52:000
-portions of the problem. And for that reason, NoSQL has actually
+00:00:57:000 --> 00:00:58:000
+They&#39;re geared towards really massive
 
 28
-00:01:52:000 --> 00:01:56:000
-come to mean, and this is now the accepted definition, not only SQL, but
+00:00:59:000 --> 00:01:00:000
+scalability, and they tend
 
 29
-00:01:56:000 --> 00:02:00:000
-again, with SQL itself actually referring to traditional relational database
+00:01:00:000 --> 00:01:02:000
+to use relaxed consistency models
 
 30
-00:02:00:000 --> 00:02:05:000
-management systems. So what&amp;#39;s wrong with a traditional
+00:01:02:000 --> 00:01:05:000
+in order to give higher performance and higher availability.
 
 31
-00:02:05:000 --> 00:02:09:000
-relational database system? Well, the primary issue is that it&amp;#39;s a
+00:01:06:000 --> 00:01:07:000
+The downside is being that there&#39;s
 
 32
-00:02:09:000 --> 00:02:13:000
-big package with all kinds of features. And in many cases, though having all
+00:01:07:000 --> 00:01:09:000
+no declarative query language, so
 
 33
-00:02:13:000 --> 00:02:16:000
-those features in one place is a great thing, but sometimes we don&amp;#39;t need all of
+00:01:09:000 --> 00:01:10:000
+more programming is typically involved
 
 34
-00:02:16:000 --> 00:02:21:000
-the features and it can actually be advantageous to drop some of those.
+00:01:11:000 --> 00:01:13:000
+in manipulating the data, and
 
 35
-00:02:21:000 --> 00:02:24:000
-Now, what are those features? I&amp;#39;m going to wind all the way back to the
+00:01:13:000 --> 00:01:15:000
+because of the relaxed consistency models,
 
 36
-00:02:24:000 --> 00:02:28:000
-introductory video to these materials, where we talked about database management
+00:01:16:000 --> 00:01:17:000
+the plus is a better
 
 37
-00:02:28:000 --> 00:02:32:000
-systems and all the great things they provide.
+00:01:17:000 --> 00:01:19:000
+performance, the downside is
 
 38
-00:02:32:000 --> 00:02:36:000
-And actually I&amp;#39;ve copied this directly from my very first set of slides.
+00:01:19:000 --> 00:01:21:000
+fewer guarantees about the consistency of the data.
 
 39
-00:02:36:000 --> 00:02:41:000
-That tells us that a database management system provides great things, efficiency,
+00:01:22:000 --> 00:01:23:000
+So there are a number of
 
 40
-00:02:41:000 --> 00:02:45:000
-reliability, convenience, a safety multi-user, access to massive amounts of
+00:01:24:000 --> 00:01:26:000
+incarnations of NoSQL systems, and
 
 41
-00:02:45:000 --> 00:02:50:000
-persistent data. So let&amp;#39;s analyze these adjectives a
+00:01:26:000 --> 00:01:27:000
+I&#39;ve chosen, as of November
 
 42
-00:02:50:000 --> 00:02:53:000
-little bit more. Let&amp;#39;s start by talking about convenience,
+00:01:27:000 --> 00:01:29:000
+2011 to divide into
 
 43
-00:02:53:000 --> 00:02:57:000
-and let me give 3 aspects of a traditional database system that lead to
+00:01:29:000 --> 00:01:31:000
+four categories, the MapReduce
 
 44
-00:02:57:000 --> 00:03:02:000
-its convenience to use for an application.
+00:01:31:000 --> 00:01:33:000
+framework, key value stores,
 
 45
-00:03:02:000 --> 00:03:04:000
-So here they are. A simple data model, declarative query
+00:01:33:000 --> 00:01:35:000
+document stores, and graph database systems.
 
 46
-00:03:04:000 --> 00:03:09:000
-language and transaction guarantees. And these 3 components of a database
+00:01:36:000 --> 00:01:37:000
+In terms of the first two,
 
 47
-00:03:09:000 --> 00:03:14:000
-system are one of the reasons that they are really good for certain applications.
+00:01:38:000 --> 00:01:39:000
+one way you can think
 
 48
-00:03:14:000 --> 00:03:18:000
-Because you can put your data in an understandable way, you can query it
+00:01:39:000 --> 00:01:40:000
+about it sort of roughly
 
 49
-00:03:18:000 --> 00:03:22:000
-using a language that&amp;#39;s easy to write yet very powerful.
+00:01:40:000 --> 00:01:42:000
+is that the MapReduce framework is
 
 50
-00:03:22:000 --> 00:03:26:000
-And you get guarantees about what happens if the system crashes or if multiple
+00:01:42:000 --> 00:01:44:000
+typically used for applications that
 
 51
-00:03:26:000 --> 00:03:31:000
-users are using it at the same time. So the relational data model is great
+00:01:45:000 --> 00:01:46:000
+would have used relational OLAP
 
 52
-00:03:31:000 --> 00:03:33:000
-because the data is organized into tables.
+00:01:47:000 --> 00:01:48:000
+or online analytical processing.
 
 53
-00:03:33:000 --> 00:03:36:000
-We have an understandable algebra over relations, and that algebra forms the
+00:01:49:000 --> 00:01:51:000
+They tend to be analysis applications that
 
 54
-00:03:36:000 --> 00:03:41:000
-basis of the query language, and everything fits neatly into a package.
+00:01:51:000 --> 00:01:53:000
+touch large amounts of the data to do complex analyses.
 
 55
-00:03:41:000 --> 00:03:45:000
-The problem comes when our data doesn&amp;#39;t fit so neatly into that package.
+00:01:54:000 --> 00:01:56:000
+Whereas key value stores tend
 
 56
-00:03:45:000 --> 00:03:48:000
-And if we insist on using the relational model, and our data isn&amp;#39;t very
+00:01:56:000 --> 00:01:57:000
+to be more in the
 
 57
-00:03:48:000 --> 00:03:52:000
-relational, then there has to be some process of organizing the data before we
+00:01:58:000 --> 00:02:00:000
+OLTP world as a
 
 58
-00:03:52:000 --> 00:03:57:000
-can say, load it into the tables of our system.
+00:02:00:000 --> 00:02:02:000
+reminder that&#39;s online transaction processing and
 
 59
-00:03:57:000 --> 00:03:59:000
-The SQL language is great because it&amp;#39;s very powerful.
+00:02:02:000 --> 00:02:04:000
+that tends to be a
 
 60
-00:03:59:000 --> 00:04:04:000
-It includes selections, projections, joins aggregation, all kinds of set
+00:02:04:000 --> 00:02:06:000
+lot of small operations touching
 
 61
-00:04:04:000 --> 00:04:07:000
-operators. useful predicates and so on, but what if
+00:02:06:000 --> 00:02:07:000
+very small parts of the data.
 
 62
-00:04:07:000 --> 00:04:11:000
-that query language is much more than what we need?
+00:02:08:000 --> 00:02:09:000
+The other two document stores
 
 63
-00:04:11:000 --> 00:04:14:000
-Maybe we only need to do simple fetches of records based on, key values, for
+00:02:10:000 --> 00:02:12:000
+and graph database systems are self-explanatory.
 
 64
-00:04:14:000 --> 00:04:17:000
-example. In that case, using a system that
+00:02:12:000 --> 00:02:13:000
+They involve documents and graphs.
 
 65
-00:04:17:000 --> 00:04:21:000
-supports the complicated language, may be, again, more than we actually need.
+00:02:14:000 --> 00:02:16:000
+Now you might wonder why
 
 66
-00:04:21:000 --> 00:04:26:000
-And similarly, transaction guarantees are, terrific when we have lots of users
+00:02:16:000 --> 00:02:18:000
+I didn&#39;t mention column stores, because
 
 67
-00:04:26:000 --> 00:04:31:000
-hitting a system at the same time. And we have very strict requirements on
+00:02:18:000 --> 00:02:20:000
+column stores are often discussed in terms of NoSQL.
 
 68
-00:04:31:000 --> 00:04:35:000
-consistency, but if our requirements are a lot less, even the weakest guarantees,
+00:02:21:000 --> 00:02:22:000
+So, column stores are in
 
 69
-00:04:35:000 --> 00:04:39:000
-that are made by the traditional database systems might not be appropriate for
+00:02:23:000 --> 00:02:24:000
+one sense just a way
 
 70
-00:04:39:000 --> 00:04:43:000
-application. And we&amp;#39;re going to see examples of all of
+00:02:24:000 --> 00:02:26:000
+of organizing relational database systems
 
 71
-00:04:43:000 --> 00:04:46:000
-these things. So the next attribute, multi-user, ties
+00:02:27:000 --> 00:02:28:000
+for higher performance for certain types
 
 72
-00:04:46:000 --> 00:04:49:000
-right into our discussion of transaction guarantees.
+00:02:28:000 --> 00:02:30:000
+of applications but we&#39;ll also
 
 73
-00:04:49:000 --> 00:04:52:000
-Again, for some applications, we might not need to maintain the level of
+00:02:30:000 --> 00:02:32:000
+see that key values stores do
 
 74
-00:04:52:000 --> 00:04:56:000
-consistency when multiple users are operating on the database at the same
+00:02:32:000 --> 00:02:33:000
+tend to have, sometimes,
 
 75
-00:04:56:000 --> 00:05:00:000
-time, that traditional systems are designed for.
+00:02:34:000 --> 00:02:35:000
+not all of them, have a
 
 76
-00:05:00:000 --> 00:05:04:000
-Next attribute, safety. safety is both from a, an authorization
+00:02:35:000 --> 00:02:38:000
+model that&#39;s also based on columns being an important concept.
 
 77
-00:05:04:000 --> 00:05:07:000
-standpoint and from an attacker&amp;#39;s standpoint.
+00:02:39:000 --> 00:02:41:000
+So, now I&#39;ll discuss each of
 
 78
-00:05:07:000 --> 00:05:11:000
-And you know safety is not that different a concern in these NoSQL type
+00:02:41:000 --> 00:02:42:000
+these in turn, although I&#39;m going
 
 79
-00:05:11:000 --> 00:05:14:000
-applications than in traditional applications.
+00:02:42:000 --> 00:02:44:000
+to spend the most amount of time on MapReduce.
 
 80
-00:05:14:000 --> 00:05:18:000
-Although in some cases, the NoSQL solutions we&amp;#39;re going to discuss are used
+00:02:45:000 --> 00:02:47:000
+So we can think of MapReduce as a framework.
 
 81
-00:05:18:000 --> 00:05:22:000
-more to process data offline and in a batch mode, in which case safety in terms
+00:02:48:000 --> 00:02:49:000
+It came originally from Google.
 
 82
-00:05:22:000 --> 00:05:25:000
-of authorization or even attack is much less of an issue than say, a database
+00:02:49:000 --> 00:02:50:000
+They invented the term MapReduce, and
 
 83
-00:05:25:000 --> 00:05:31:000
-system that&amp;#39;s sitting behind a deployed website.
+00:02:51:000 --> 00:02:53:000
+now there&#39;s an open source system
 
 84
-00:05:31:000 --> 00:05:35:000
-Persistence is something that&amp;#39;s provided by database systems, and persistence is
+00:02:53:000 --> 00:02:55:000
+widely used called Hadoop which
 
 85
-00:05:35:000 --> 00:05:39:000
-certainly something important in NoSQL type applications as well.
+00:02:55:000 --> 00:02:57:000
+does implement the MapReduce framework
 
 86
-00:05:39:000 --> 00:05:43:000
-Although, for NoSQL, we&amp;#39;ll see that files are often okay, as a storage mechanism
+00:02:58:000 --> 00:02:59:000
+so the first aspect of MapReduce
 
 87
-00:05:43:000 --> 00:05:47:000
-rather than specialized structures that are typically implemented in a database
+00:03:00:000 --> 00:03:02:000
+is that there is no data model at all.
 
 88
-00:05:47:000 --> 00:05:50:000
-system. Reliability, again is something we&amp;#39;re
+00:03:02:000 --> 00:03:03:000
+The data in the MapReduce
 
 89
-00:05:50:000 --> 00:05:53:000
-certainly going to want in any data management application, but again the
+00:03:04:000 --> 00:03:05:000
+framework is stored in files
 
 90
-00:05:53:000 --> 00:05:57:000
-considerations are a little different in certain types of applications, say the
+00:03:06:000 --> 00:03:07:000
+both as input and output.
 
 91
-00:05:57:000 --> 00:06:02:000
-batch data analysis applications. Or it might be just okay to completely
+00:03:08:000 --> 00:03:09:000
+In the Google MapReduce
 
 92
-00:06:02:000 --> 00:06:07:000
-redo the entire, say, processing of the data, where that wouldn&amp;#39;t be the case if
+00:03:09:000 --> 00:03:12:000
+implementation, it&#39;s the Google File System, GFS.
 
 93
-00:06:07:000 --> 00:06:12:000
-you had an operational database sitting behind a website.
+00:03:13:000 --> 00:03:15:000
+In the Hadoop open source
 
 94
-00:06:12:000 --> 00:06:16:000
-Now the last two adjectives, on the other hand, are on the other end of spectrum.
+00:03:15:000 --> 00:03:18:000
+implementation, it&#39;s the Hadoop Distributed File System, HDFS.
 
 95
-00:06:16:000 --> 00:06:19:000
-One of the reasons for NoSQL solutions is that the data being handled
+00:03:19:000 --> 00:03:21:000
+What the user provides to process
 
 96
-00:06:19:000 --> 00:06:23:000
-these days is much, much more massive than the amount of data that the
+00:03:21:000 --> 00:03:22:000
+data using the MapReduce framework,
 
 97
-00:06:23:000 --> 00:06:28:000
-traditional relational database systems were designed for.
+00:03:23:000 --> 00:03:25:000
+is a set of specific functions.
 
 98
-00:06:28:000 --> 00:06:32:000
-part of the reason is that the cost of hardware&amp;#39;s gone down and so people are
+00:03:26:000 --> 00:03:27:000
+Not surprisingly, one of those
 
 99
-00:06:32:000 --> 00:06:36:000
-just saving much more data. and then again another reason of course
+00:03:28:000 --> 00:03:29:000
+functions is called map, and
 
 100
-00:06:36:000 --> 00:06:40:000
-are websites such as Facebook and tweeter and so on that are just collecting data
+00:03:29:000 --> 00:03:30:000
+one of them is called reduce.
 
 101
-00:06:40:000 --> 00:06:45:000
-from enormous numbers of users at enormous rates.
+00:03:32:000 --> 00:03:33:000
+Other functions that the user
 
 102
-00:06:45:000 --> 00:06:49:000
-And those same websites, by the way, have efficiency requirements that are much,
+00:03:33:000 --> 00:03:35:000
+needs to provide is a
 
 103
-00:06:49:000 --> 00:06:54:000
-much higher than we&amp;#39;ve seen in the past. So we have these millions billions of, of
+00:03:35:000 --> 00:03:36:000
+reader function which will
 
 104
-00:06:54:000 --> 00:06:58:000
-records, and we expect a response time of under a second for fairly complex
+00:03:36:000 --> 00:03:38:000
+read data from files and provide it as records.
 
 105
-00:06:58:000 --> 00:07:03:000
-operations overloads. So again, these are areas where NoSQL
+00:03:39:000 --> 00:03:41:000
+A writer function that will
 
 106
-00:07:03:000 --> 00:07:09:000
-systems want to increase the adjectives where the, earlier ones, we want to sort
+00:03:41:000 --> 00:03:42:000
+take the output records and
 
 107
-00:07:09:000 --> 00:07:14:000
-of decrease what they&amp;#39;re offering. So, in some sense, you can almost think
+00:03:43:000 --> 00:03:44:000
+write them into files, and finally
 
 108
-00:07:14:000 --> 00:07:18:000
-of NoSQL systems as compromising on some of these earlier ones, in order to
+00:03:45:000 --> 00:03:46:000
+there&#39;s an optional function called
 
 109
-00:07:18:000 --> 00:07:23:000
-boost some of the later ones. So with that motivation, now let&amp;#39;s talk
+00:03:46:000 --> 00:03:48:000
+the combiner, that we&#39;ll discuss.
 
 110
-00:07:23:000 --> 00:07:26:000
-about the NoSQL systems. So they are, as I&amp;#39;ve said, an alternative
+00:03:49:000 --> 00:03:50:000
+So, the user just provides this
 
 111
-00:07:26:000 --> 00:07:30:000
-to a traditional relational database system for managing and analyzing large
+00:03:51:000 --> 00:03:52:000
+set of functions, and then what
 
 112
-00:07:30:000 --> 00:07:33:000
-amounts of data. At the highest level, here are the
+00:03:52:000 --> 00:03:54:000
+the system provides, is the
 
 113
-00:07:33:000 --> 00:07:37:000
-attributes that are provided in NoSQL systems.
+00:03:54:000 --> 00:03:57:000
+glue that processes the data through the functions.
 
 114
-00:07:37:000 --> 00:07:42:000
-So first of all, a more flexible schema than the rigid relational model.
+00:03:57:000 --> 00:03:59:000
+The system also provides fault tolerance
 
 115
-00:07:42:000 --> 00:07:46:000
-Second of all, and I really hesitate to say this, but they tend to be a bit
+00:03:59:000 --> 00:04:01:000
+of the processing, so, if there is
 
 116
-00:07:46:000 --> 00:07:51:000
-quicker and a bit cheaper to set up for a particular application.
+00:04:02:000 --> 00:04:03:000
+a crash or a node
 
 117
-00:07:51:000 --> 00:07:55:000
-Now that may change over time, but that&amp;#39;s the word on the street as of this moment.
+00:04:03:000 --> 00:04:04:000
+goes down during the execution,
 
 118
-00:07:55:000 --> 00:08:01:000
-Third, as I already motivated, they are designed for massive scalability and that
+00:04:05:000 --> 00:04:07:000
+it will be guaranteed to be as if that didn&#39;t happen.
 
 119
-00:08:01:000 --> 00:08:06:000
-means massive both in the amount of data and also with the efficiency of the
+00:04:08:000 --> 00:04:09:000
+And finally the system also provides
 
 120
-00:08:06:000 --> 00:08:13:000
-operations on that data. And lastly, they don&amp;#39;t necessarily have
+00:04:09:000 --> 00:04:11:000
+scalability so that the
 
 121
-00:08:13:000 --> 00:08:17:000
-transactional guarentees. In general what they do is relax the
+00:04:11:000 --> 00:04:12:000
+MapReduce framework can be
 
 122
-00:08:17:000 --> 00:08:21:000
-consistency that&amp;#39;s offered by the system And, in turn, gain higher performance and
+00:04:12:000 --> 00:04:14:000
+used for very very large data analysis.
 
 123
-00:08:21:000 --> 00:08:27:000
-higher availability of the system. So these systems do tend to be used for
+00:04:15:000 --> 00:04:16:000
+So let&#39;s talk about the two
 
 124
-00:08:27:000 --> 00:08:30:000
-applications that have strict requirements, both in how fast they can
+00:04:16:000 --> 00:04:19:000
+most important functions, the map function and the reduce function.
 
 125
-00:08:30:000 --> 00:08:35:000
-do things and in being up all the time. Now, of course, there&amp;#39;s a downside, and
+00:04:20:000 --> 00:04:21:000
+The map function is used
 
 126
-00:08:35:000 --> 00:08:38:000
-again this is just at the very highest level.
+00:04:21:000 --> 00:04:24:000
+to take the data analysis problem
 
 127
-00:08:38:000 --> 00:08:41:000
-Different, NoSQL systems address things in different ways.
+00:04:24:000 --> 00:04:25:000
+and divide it into sub-problems.
 
 128
-00:08:41:000 --> 00:08:45:000
-On the downside, they tend not to have a dec, declarative query language.
+00:04:26:000 --> 00:04:28:000
+Very specifically the function that
 
 129
-00:08:45:000 --> 00:08:48:000
-So one of the benefits of a traditional system is being able to write.
+00:04:28:000 --> 00:04:30:000
+the user provides called map is
 
 130
-00:08:48:000 --> 00:08:52:000
-Add hot queries in a very nice high level language, change your mind about what you
+00:04:30:000 --> 00:04:31:000
+going to take a data item
 
 131
-00:08:52:000 --> 00:08:56:000
-want to write and make changes easily, explore the database in lots of different
+00:04:32:000 --> 00:04:33:000
+as input and it&#39;s
 
 132
-00:08:56:000 --> 00:08:59:000
-ways just with these simple queries, so in those SQL systems, the lack of
+00:04:34:000 --> 00:04:37:000
+going to produce as output zero or more key value pairs.
 
 133
-00:08:59:000 --> 00:09:04:000
-declarative query language does mean that there&amp;#39;s more direct programmig Involved
+00:04:39:000 --> 00:04:40:000
+Now what I mean by a
 
 134
-00:09:04:000 --> 00:09:08:000
-in manipulating the data and another downside is the relaxed consistency does
+00:04:40:000 --> 00:04:41:000
+sub-problem here is that we&#39;re going
 
 135
-00:09:08:000 --> 00:09:12:000
-mean there are fewer guarantees, so for applications that have very strict that
+00:04:42:000 --> 00:04:43:000
+to separately deal with the
 
 136
-00:09:12:000 --> 00:09:15:000
-need very strict guarantees about the consistency of the data or say the
+00:04:44:000 --> 00:04:46:000
+set of records associated with
 
 137
-00:09:15:000 --> 00:09:19:000
-serialized ability of operations on the data, no sequal systems are probably not
+00:04:46:000 --> 00:04:48:000
+each key, and that&#39;s the job of the reduce function.
 
 138
-00:09:19:000 --> 00:09:29:000
-a good idea. So the remainder of the video is just
+00:04:49:000 --> 00:04:51:000
+So the reduce function, which we&#39;ll
 
 139
-00:09:29:000 --> 00:09:32:000
-going to go through a set of examples to motivate, the cases where we might want
+00:04:51:000 --> 00:04:53:000
+write, takes as its
 
 140
-00:09:32:000 --> 00:09:35:000
-to use a NoSQL system and the reasons that it might be difficult to use a
+00:04:53:000 --> 00:04:55:000
+parameters a key and
 
 141
-00:09:35:000 --> 00:09:40:000
-traditional system. They&amp;#39;re all sort of simplified made-up
+00:04:56:000 --> 00:04:57:000
+then a list of values for
 
 142
-00:09:40:000 --> 00:09:43:000
-examples, but I do think they give the overall idea.
+00:04:57:000 --> 00:04:59:000
+that key and it
 
 143
-00:09:43:000 --> 00:09:47:000
-So the first example is an application where we have a large number of logs of
+00:04:59:000 --> 00:05:01:000
+produces as output, zero or more records.
 
 144
-00:09:47:000 --> 00:09:52:000
-web activity and we want to analyze those logs in various ways.
+00:05:03:000 --> 00:05:04:000
+Now we&#39;ll shortly see a concrete
 
 145
-00:09:52:000 --> 00:09:56:000
-Let&amp;#39;s assume that when a web log is written there&amp;#39;s a set of records for each
+00:05:04:000 --> 00:05:06:000
+example that will, hopefully, make
 
 146
-00:09:56:000 --> 00:10:00:000
-access, and that record is going to report that a particular user with a
+00:05:06:000 --> 00:05:08:000
+this more understandable but before
 
 147
-00:10:00:000 --> 00:10:05:000
-given user ID accessed a particular URL at a particular time.
+00:05:08:000 --> 00:05:09:000
+we do that, let &#39;s look at the
 
 148
-00:10:05:000 --> 00:10:09:000
-And then we might have some additional information associated with that access,
+00:05:10:000 --> 00:05:11:000
+overall architecture of how
 
 149
-00:10:09:000 --> 00:10:13:000
-maybe something about the user or whether it was converted into a purchase or where
+00:05:11:000 --> 00:05:13:000
+these functions are used to process data.
 
 150
-00:10:13:000 --> 00:10:17:000
-the user went next. All kinds of possible things we might
+00:05:15:000 --> 00:05:16:000
+So we&#39;ll start with our map
 
 151
-00:10:17:000 --> 00:10:20:000
-want to include in there, and actually, that additional info might change over
+00:05:16:000 --> 00:05:17:000
+function, which, let&#39;s put inside
 
 152
-00:10:20:000 --> 00:10:24:000
-time. So let&amp;#39;s suppose that we&amp;#39;re going to work
+00:05:18:000 --> 00:05:19:000
+a box, and then we
 
 153
-00:10:24:000 --> 00:10:27:000
-with our web log data in a traditional database system.
+00:05:19:000 --> 00:05:22:000
+will have input records going into the map function.
 
 154
-00:10:27:000 --> 00:10:31:000
-The first test then would be to get the data loaded into the system.
+00:05:23:000 --> 00:05:24:000
+As a reminder, what the map
 
 155
-00:10:31:000 --> 00:10:34:000
-And this is one of the first problems with relational systems is that there
+00:05:25:000 --> 00:05:26:000
+function produces from each input
 
 156
-00:10:34:000 --> 00:10:38:000
-might be quite a bit of work involved in taking data like this that might not be
+00:05:27:000 --> 00:05:28:000
+record is an output record
 
 157
-00:10:38:000 --> 00:10:43:000
-perfectly organized and getting it into a relational system.
+00:05:28:000 --> 00:05:30:000
+that&#39;s a key value pair and
 
 158
-00:10:43:000 --> 00:10:47:000
-For example, we might want to do some amount of data cleaning.
+00:05:30:000 --> 00:05:32:000
+we&#39;re going to have these
 
 159
-00:10:47:000 --> 00:10:50:000
-data cleaning refers to finding say errors, or is, inconsistencies in the
+00:05:32:000 --> 00:05:34:000
+records sort of directed
 
 160
-00:10:50:000 --> 00:10:55:000
-data, and resolving those. For example, maybe our time stamps are in
+00:05:35:000 --> 00:05:36:000
+in a different way for each key.
 
 161
-00:10:55:000 --> 00:10:57:000
-multiple formats and we need to resolve them.
+00:05:36:000 --> 00:05:37:000
+So let&#39;s say this is
 
 162
-00:10:57:000 --> 00:11:01:000
-Maybe some of our URLs are invalid. So, we go through a data cleaning
+00:05:38:000 --> 00:05:39:000
+the way that the records are
 
 163
-00:11:01:000 --> 00:11:05:000
-process. The next thing we might want to do is
+00:05:39:000 --> 00:05:40:000
+gonna go for key 1, key
 
 164
-00:11:05:000 --> 00:11:10:000
-some amount of data extraction. So let&amp;#39;s take a look at this additional
+00:05:41:000 --> 00:05:43:000
+2, and up to key n.
 
 165
-00:11:10:000 --> 00:11:12:000
-information. So this might be in a structured,
+00:05:43:000 --> 00:05:44:000
+And of course the records will
 
 166
-00:11:12:000 --> 00:11:16:000
-semi-structured, or free text format, but if we&amp;#39;re going to load into a database
+00:05:44:000 --> 00:05:46:000
+have values associated with them as well.
 
 167
-00:11:16:000 --> 00:11:19:000
-system then we&amp;#39;re probably going to need to extract the relevant fields from that
+00:05:47:000 --> 00:05:49:000
+So we&#39;ll send each batch of
 
 168
-00:11:19:000 --> 00:11:25:000
-information and get that formatted so we can load it into a table.
+00:05:49:000 --> 00:05:50:000
+records for a given
 
 169
-00:11:25:000 --> 00:11:28:000
-We might also do some amount of verification, maybe checking that all the
+00:05:51:000 --> 00:05:52:000
+key into our reduce
 
 170
-00:11:28:000 --> 00:11:32:000
-URLs are valid,. And then finally we have to devise,
+00:05:53:000 --> 00:05:53:000
+function, so let me just
 
 171
-00:11:32:000 --> 00:11:38:000
-design some kind of schema, or specify a schema, and then get the data loaded in.
+00:05:54:000 --> 00:05:55:000
+draw a few reduce boxes
 
 172
-00:11:38:000 --> 00:11:41:000
-Now proponents of NoSQL systems will tell you &amp;quot;Hey, you don&amp;#39;t have to do any
+00:05:55:000 --> 00:05:57:000
+here, there&#39;s one for each
 
 173
-00:11:41:000 --> 00:11:45:000
-of that. You can just do nothing and immediately
+00:05:57:000 --> 00:05:59:000
+set of records for a given key.
 
 174
-00:11:45:000 --> 00:11:49:000
-start operating on the data directly out of say the file where it&amp;#39;s stored.
+00:06:00:000 --> 00:06:02:000
+And then as we mentioned before the
 
 175
-00:11:49:000 --> 00:11:53:000
-And that sort of comes back to the idea that you can get up and running more
+00:06:02:000 --> 00:06:04:000
+reduce function produces output records.
 
 176
-00:11:53:000 --> 00:11:58:000
-quickly on a NoSQL system. Now of course, there&amp;#39;s no free lunch or
+00:06:05:000 --> 00:06:08:000
+At the highest level, that&#39;s it. That&#39;s our data processing.
 
 177
-00:11:58:000 --> 00:12:01:000
-pay me now pay me later. The reality is of course when you
+00:06:08:000 --> 00:06:09:000
+We start with a bunch of input.
 
 178
-00:12:01:000 --> 00:12:05:000
-actually start processing the data, you are going to have to embed somewhere in
+00:06:10:000 --> 00:06:11:000
+We divide it up
 
 179
-00:12:05:000 --> 00:12:10:000
-there these same basic operations to get the data cleaned up and usable.
+00:06:12:000 --> 00:06:13:000
+into sub-problems, based on a
 
 180
-00:12:10:000 --> 00:12:13:000
-But those would occur during the processing of the data.
+00:06:14:000 --> 00:06:15:000
+key, which will extract from the
 
 181
-00:12:13:000 --> 00:12:16:000
-And if there&amp;#39;s some portions of the data that you&amp;#39;re not operating on, you can
+00:06:15:000 --> 00:06:17:000
+input record somehow, we&#39;ll see an
 
 182
-00:12:16:000 --> 00:12:21:000
-just leave those in place without doing the clean up of that portion of the data.
+00:06:17:000 --> 00:06:18:000
+example, and then each
 
 183
-00:12:21:000 --> 00:12:24:000
-Now, let&amp;#39;s look at the type of operations we might want to preform over this data.
+00:06:19:000 --> 00:06:21:000
+sub-problem, associated with a
 
 184
-00:12:24:000 --> 00:12:28:000
-It might be very simple things. We might say just want to find all
+00:06:21:000 --> 00:06:22:000
+particular key is set through
 
 185
-00:12:28:000 --> 00:12:33:000
-records that correspond to a given user. Or maybe we want to find all accesses of
+00:06:22:000 --> 00:06:24:000
+the reduce function, which produces the output.
 
 186
-00:12:33:000 --> 00:12:38:000
-a given URL, or everything that happened at a particular point in time.
+00:06:24:000 --> 00:06:25:000
+And that&#39;s the end of our processing.
 
 187
-00:12:38:000 --> 00:12:42:000
-Now, none of these things require SQL, ooh, NoSQL, but of course, that&amp;#39;s not
+00:06:27:000 --> 00:06:29:000
+Now things are, of course, a bit more complex than that.
 
 188
-00:12:42:000 --> 00:12:47:000
-what NoSQL stands for. But these all just require finding you
+00:06:29:000 --> 00:06:30:000
+First of all, there&#39;s no reason
 
 189
-00:12:47:000 --> 00:12:51:000
-know, a set of records based on a single value.
+00:06:31:000 --> 00:06:32:000
+to have one map box, because
 
 190
-00:12:51:000 --> 00:12:54:000
-Or we might want to look for some special construct that appears inside the
+00:06:33:000 --> 00:06:34:000
+the map function takes each input
 
 191
-00:12:54:000 --> 00:12:58:000
-additional information, which the SQL language, again, is not particularly
+00:06:35:000 --> 00:06:36:000
+record and processes it
 
 192
-00:12:58:000 --> 00:13:02:000
-designed to do. The other thing to notice about all of
+00:06:36:000 --> 00:06:37:000
+separately, so we can parallelize
 
 193
-00:13:02:000 --> 00:13:05:000
-these operations is that they are highly parallelizable.
+00:06:38:000 --> 00:06:40:000
+the mapping as much as we want.
 
 194
-00:13:05:000 --> 00:13:11:000
-Each one of them, in fact, is just looking at the individual records.
+00:06:40:000 --> 00:06:41:000
+So let&#39;s change the picture here,
 
 195
-00:13:11:000 --> 00:13:15:000
-We could do everything in parallel. And exploiting parallelism when you have
+00:06:42:000 --> 00:06:44:000
+to have a whole set of map boxes.
 
 196
-00:13:15:000 --> 00:13:19:000
-simple operations is one of the, important aspects of most NoSQL
+00:06:45:000 --> 00:06:46:000
+So now, each MapBox is
 
 197
-00:13:19:000 --> 00:13:23:000
-solutions. Here&amp;#39;s an operation I came up with
+00:06:46:000 --> 00:06:48:000
+going to take its records and
 
 198
-00:13:23:000 --> 00:13:27:000
-because it does look like it requires a relational joint.
+00:06:48:000 --> 00:06:49:000
+it&#39;s going to produce records with
 
 199
-00:13:27:000 --> 00:13:33:000
-Let&amp;#39;s say that we want to find all pairs of users that have acessed the same URL.
+00:06:50:000 --> 00:06:53:000
+given keys so we&#39;ll still send k1 over to the first reducer.
 
 200
-00:13:33:000 --> 00:13:36:000
-In fact, back in the SQL videos, I gave several examples like this.
+00:06:53:000 --> 00:06:54:000
+If we have k2
 
 201
-00:13:36:000 --> 00:13:42:000
-This is essentially a self-join over two instances of a table or, two instances of
+00:06:55:000 --> 00:06:56:000
+it&#39;ll go here and down here.
 
 202
-00:13:42:000 --> 00:13:46:000
-the web logs. So this looks like maybe we actually do
+00:06:57:000 --> 00:06:57:000
+And of course.
 
 203
-00:13:46:000 --> 00:13:49:000
-need a SQL-like solution, but I&amp;#39;m going to argue that this is actually kind
+00:06:58:000 --> 00:06:59:000
+this map will send things to
 
 204
-00:13:49:000 --> 00:13:53:000
-of a weird query, and it&amp;#39;s fairly unlikely that we would be doing this one
+00:06:59:000 --> 00:07:01:000
+reduce, reduce, reduce, and so on.
 
 205
-00:13:53:000 --> 00:13:57:000
-on a regular basis. Now, let&amp;#39;s make our data scenario
+00:07:02:000 --> 00:07:03:000
+Now, you might wonder what happened
 
 206
-00:13:57:000 --> 00:14:00:000
-slightly more complicated. In addition to the web log, let&amp;#39;s suppose
+00:07:03:000 --> 00:07:05:000
+to those reader and writer
 
 207
-00:14:00:000 --> 00:14:04:000
-that we have separate records with information about users.
+00:07:05:000 --> 00:07:06:000
+functions that I talked about.
 
 208
-00:14:04:000 --> 00:14:07:000
-So we have the user ID, maybe the name, age, gender, and some other attributes of
+00:07:07:000 --> 00:07:08:000
+The reality is that we don&#39;t
 
 209
-00:14:07:000 --> 00:14:11:000
-the users. And now, suppose our task is to take a
+00:07:08:000 --> 00:07:10:000
+actually start with input records, we
 
 210
-00:14:11:000 --> 00:14:18:000
-given URL and determine the average age of the users who have accessed that URL.
+00:07:10:000 --> 00:07:11:000
+start with our data in
 
 211
-00:14:18:000 --> 00:14:22:000
-Okay, well this is a very, I would argue, SQL-like query.
+00:07:11:000 --> 00:07:14:000
+files. So here&#39;s the real original data.
 
 212
-00:14:22:000 --> 00:14:26:000
-So it&amp;#39;s nice in this case to have a language somewhat like SQL.
+00:07:14:000 --> 00:07:15:000
+We&#39;ll draw this picture here
 
 213
-00:14:26:000 --> 00:14:30:000
-But I&amp;#39;ll still say that some aspects of NoSQL solutions may be relevant to this
+00:07:16:000 --> 00:07:18:000
+for files, and let&#39;s
 
 214
-00:14:30:000 --> 00:14:34:000
-task, and in particular, it&amp;#39;s the question of consistency.
+00:07:18:000 --> 00:07:19:000
+erase our input records here
 
 215
-00:14:34:000 --> 00:14:38:000
-If we&amp;#39;re using, if we&amp;#39;re analyzing a huge amount of data and we&amp;#39;re just looking for
+00:07:20:000 --> 00:07:22:000
+because the job of
 
 216
-00:14:38:000 --> 00:14:41:000
-some type of average, some type of statistical information over that data it
+00:07:22:000 --> 00:07:24:000
+the reader is to take
 
 217
-00:14:41:000 --> 00:14:47:000
-might not be required that we have absolute consistency.
+00:07:25:000 --> 00:07:27:000
+the files, extract the
 
 218
-00:14:47:000 --> 00:14:50:000
-In fact it might even be okay if we count some accesses to URL&amp;#39;s that were at a
+00:07:27:000 --> 00:07:29:000
+records from the files, and provide them to the map functions.
 
 219
-00:14:50:000 --> 00:14:54:000
-certain time, and we completely missed some from an earlier time just because
+00:07:30:000 --> 00:07:33:000
+So here is that side of thing, it&#39;s a bit sloppy but I think get the idea.
 
 220
-00:14:54:000 --> 00:15:00:000
-the database might be fragmented and, and inconsistent.
+00:07:34:000 --> 00:07:35:000
+And we have a similar thing
 
 221
-00:15:00:000 --> 00:15:04:000
-And, that&amp;#39;s, that&amp;#39;s again probably okay for this application, so to summarize the
+00:07:35:000 --> 00:07:36:000
+on the other end, the output
 
 222
-00:15:04:000 --> 00:15:08:000
-weblog application, it might be somewhat difficult to get web access records into
+00:07:36:000 --> 00:07:37:000
+methods come out of the
 
 223
-00:15:08:000 --> 00:15:12:000
-a relational database system. It might be easier to use them in their
+00:07:37:000 --> 00:07:38:000
+reducers, but then their
 
 224
-00:15:12:000 --> 00:15:16:000
-filed format and extract the information when we need it.
+00:07:38:000 --> 00:07:40:000
+provided to the writer functions
 
 225
-00:15:16:000 --> 00:15:20:000
-many of the operations that we perform, maybe extremely simply, just fetching a
+00:07:40:000 --> 00:07:43:000
+that which write the output to a final file.
 
 226
-00:15:20:000 --> 00:15:24:000
-set of records based on a value, and also highly parallelizable.
+00:07:44:000 --> 00:07:45:000
+So here it is, our original
 
 227
-00:15:24:000 --> 00:15:28:000
-And even for the more complicated analyses that we might do, we may not
+00:07:45:000 --> 00:07:47:000
+input in files here, our
 
 228
-00:15:28:000 --> 00:15:34:000
-need strict consistency accessing say, a very specific snapshot of the data.
+00:07:47:000 --> 00:07:49:000
+final output in files there.
 
 229
-00:15:34:000 --> 00:15:37:000
-Now let&amp;#39;s take a look at another application, let&amp;#39;s say the friends
+00:07:50:000 --> 00:07:51:000
+Ok, but let me remind
 
 230
-00:15:37:000 --> 00:15:41:000
-relationship in a social network, which generates a graph when a user is
+00:07:51:000 --> 00:07:54:000
+you what the user provide what the system provides.
 
 231
-00:15:41:000 --> 00:15:47:000
-represented by nodes, and say the friend relation is represented by edges.
+00:07:54:000 --> 00:07:56:000
+So the user creates a single
 
 232
-00:15:47:000 --> 00:15:51:000
-So each record is going to have 2 user ID&amp;#39;s.
+00:07:57:000 --> 00:07:59:000
+map function that takes records
 
 233
-00:15:51:000 --> 00:15:55:000
-That says that one user is friends with another, and then we&amp;#39;ll have separate
+00:07:59:000 --> 00:08:02:000
+and emits a key value pair for each record.
 
 234
-00:15:55:000 --> 00:15:58:000
-records with information about users, the user ID, maybe again their name, age and
+00:08:03:000 --> 00:08:04:000
+The user provides a single reduce
 
 235
-00:15:58:000 --> 00:16:02:000
-gender and so forth. And let&amp;#39;s imagine this is an extremely
+00:08:05:000 --> 00:08:06:000
+function that takes a set
 
 236
-00:16:02:000 --> 00:16:05:000
-large social graph. What kind of operations might we want to
+00:08:06:000 --> 00:08:08:000
+of values for a given
 
 237
-00:16:05:000 --> 00:16:08:000
-perform? Well, one of them is to find all the
+00:08:09:000 --> 00:08:10:000
+key and produces zero or
 
 238
-00:16:08:000 --> 00:16:12:000
-friends of the given user, and so that&amp;#39;s pretty straightforward.
+00:08:10:000 --> 00:08:11:000
+more outputs and I should
 
 239
-00:16:12:000 --> 00:16:15:000
-Again, we are just fetching the set of user 2&amp;#39;s that are associated with a given
+00:08:11:000 --> 00:08:12:000
+mention that the map can produce
 
 240
-00:16:15:000 --> 00:16:19:000
-user 1. So not an operation that requires a
+00:08:13:000 --> 00:08:14:000
+zero or more outputs from each record as well.
 
 241
-00:16:19:000 --> 00:16:25:000
-complicated query language. On the other hand what if we are looking
+00:08:14:000 --> 00:08:16:000
+It doesn&#39;t have to be a one-to-one mapping.
 
 242
-00:16:25:000 --> 00:16:28:000
-for all friends of friends of a given user.
+00:08:16:000 --> 00:08:18:000
+The user also provides the
 
 243
-00:16:28:000 --> 00:16:33:000
-Actually now, we do require a joint operation in order to do that.
+00:08:18:000 --> 00:08:19:000
+reader function, to extract data
 
 244
-00:16:33:000 --> 00:16:37:000
-And furthermore, what if we want to find all women friends of men friends of a
+00:08:20:000 --> 00:08:20:000
+from files and the writer
 
 245
-00:16:37:000 --> 00:16:40:000
-given user? In that case, we&amp;#39;re going to need a
+00:08:21:000 --> 00:08:23:000
+function, to write data to the output.
 
 246
-00:16:40:000 --> 00:16:44:000
-couple instances of the friend relationship, and we&amp;#39;re going to need to
+00:08:23:000 --> 00:08:26:000
+And there&#39;s one more optional function I mentioned called the combiner.
 
 247
-00:16:44:000 --> 00:16:51:000
-join that with a couple instances actually of the user information as well.
+00:08:27:000 --> 00:08:29:000
+The combiner, actually, is sort
 
 248
-00:16:51:000 --> 00:16:54:000
-So, this is starting to look more, a little bit more SQL-like.
+00:08:29:000 --> 00:08:30:000
+of attached to the mapper,
 
 249
-00:16:54:000 --> 00:16:57:000
-But, maybe we don&amp;#39;t need the full power of the language, because we can see that
+00:08:31:000 --> 00:08:32:000
+so we can kind of put it here.
 
 250
-00:16:57:000 --> 00:17:01:000
-there&amp;#39;s a certain sort of pattern to the types of operations we&amp;#39;re doing.
+00:08:34:000 --> 00:08:35:000
+And what the combiner does is,
 
 251
-00:17:01:000 --> 00:17:05:000
-And of course, the problem comes when we want friends, of friends, of friends, of
+00:08:35:000 --> 00:08:36:000
+it actually, in sort of,
 
 252
-00:17:05:000 --> 00:17:09:000
-a given user. In that case, we&amp;#39;re doing large number of
+00:08:37:000 --> 00:08:38:000
+in the mapper, will take
 
 253
-00:17:09:000 --> 00:17:12:000
-joins, and large numbers of joins tend not to be not that efficient in
+00:08:38:000 --> 00:08:40:000
+a set of records for
 
 254
-00:17:12:000 --> 00:17:17:000
-relational data base systems, even when you use recursive SQL.
+00:08:40:000 --> 00:08:41:000
+a given key, so, say,
 
 255
-00:17:17:000 --> 00:17:21:000
-So, in addition to this type of operation being not necessarily suitable for SQL, a
+00:08:41:000 --> 00:08:43:000
+for K1 and then we&#39;ll
 
 256
-00:17:21:000 --> 00:17:26:000
-second attribute that we probably don&amp;#39;t need again in this environment is
+00:08:44:000 --> 00:08:47:000
+send a combined version of that record to the reducer.
 
 257
-00:17:26:000 --> 00:17:30:000
-consistency. because we probably don&amp;#39;t care that much
+00:08:48:000 --> 00:08:49:000
+In a way, you can think of
 
 258
-00:17:30:000 --> 00:17:34:000
-whether we get an exact snapshot of the database, if things are changing.
+00:08:49:000 --> 00:08:51:000
+it as a sort of pre-reduce phase,
 
 259
-00:17:34:000 --> 00:17:39:000
-Typically, for these types of analyses, approximate solutions are acceptable.
+00:08:51:000 --> 00:08:52:000
+and we&#39;ll see examples of this
 
 260
-00:17:39:000 --> 00:17:43:000
-So these types of operations suggest that we might want to have a special type of
+00:08:53:000 --> 00:08:54:000
+that occurs with the mapper,
 
 261
-00:17:43:000 --> 00:17:47:000
-database system that&amp;#39;s suitable for graph operations on very large scale, and in
+00:08:54:000 --> 00:08:56:000
+to make things more efficient and send less data to the reducer.
 
 262
-00:17:47:000 --> 00:17:51:000
-fact graph databases are one type of NoSQL solution that we will talk about in
+00:08:58:000 --> 00:08:59:000
+So, the user has provided these
 
 263
-00:17:51:000 --> 00:17:57:000
-the next video. And finally, my last example is Wikipedia
+00:08:59:000 --> 00:09:01:000
+pieces, these system infrastructure
 
 264
-00:17:57:000 --> 00:18:00:000
-pages. If you think of Wikipedia, it&amp;#39;s a large
+00:09:01:000 --> 00:09:03:000
+takes the pieces, and distributes
 
 265
-00:18:00:000 --> 00:18:05:000
-collection of documents, extremely large. And inside each document, there&amp;#39;s
+00:09:04:000 --> 00:09:06:000
+them to multiple machines, because
 
 266
-00:18:05:000 --> 00:18:08:000
-typically a combination of some structured data inside boxes that has
+00:09:06:000 --> 00:09:07:000
+a lot of this can go on in parallel.
 
 267
-00:18:08:000 --> 00:18:12:000
-say, key valued pairs. And then on the structured data, which
+00:09:08:000 --> 00:09:10:000
+All of this can go on in parallel, this too, and this too.
 
 268
-00:18:12:000 --> 00:18:16:000
-might be fairly large volumes of text, a type of task we might want to do is say
+00:09:11:000 --> 00:09:12:000
+Here you have to exchange
 
 269
-00:18:16:000 --> 00:18:20:000
-retrieve the first paragraph, the text paragraph, in all pages where we look in
+00:09:12:000 --> 00:09:13:000
+data, maybe from one machine
 
 270
-00:18:20:000 --> 00:18:24:000
-the structure data and find out that the page is about a United States president,
+00:09:14:000 --> 00:09:15:000
+to another, but once you
 
 271
-00:18:24:000 --> 00:18:31:000
-say before 1900. clearly this is not very suitable for
+00:09:15:000 --> 00:09:18:000
+do, parallelism can occur and here as well.
 
 272
-00:18:31:000 --> 00:18:35:000
-loading into a relational database and querying in that fashion, again because
+00:09:18:000 --> 00:09:20:000
+So the system distributes them to
 
 273
-00:18:35:000 --> 00:18:40:000
-of the mix of structured and unstructured information.
+00:09:20:000 --> 00:09:20:000
+machines, and you can add
 
 274
-00:18:40:000 --> 00:18:46:000
-And once more, consistency is probably not critical in this environment as well.
+00:09:21:000 --> 00:09:22:000
+more machines to make it all all run faster.
 
 275
-00:18:46:000 --> 00:18:49:000
-As we&amp;#39;ll see, another type of NoSQL solution is called the document database
+00:09:23:000 --> 00:09:25:000
+The system also provides fault tolerance,
 
 276
-00:18:49:000 --> 00:18:54:000
-system which can be more appropriate for this type of application.
+00:09:25:000 --> 00:09:27:000
+so if something goes badly here,
 
 277
-00:18:54:000 --> 00:18:57:000
-So to summarize, NoSQL systems provide an alternative to using a traditional
+00:09:27:000 --> 00:09:28:000
+it will redo that reducer function
 
 278
-00:18:57:000 --> 00:19:02:000
-database management system for certain types of applications.
+00:09:29:000 --> 00:09:31:000
+and here as well, and finally,
 
 279
-00:19:02:000 --> 00:19:06:000
-NoSQL systems provide a flexible schema which can be useful when its not easy to
+00:09:32:000 --> 00:09:33:000
+as I mentioned before, it provides scalability.
 
 280
-00:19:06:000 --> 00:19:10:000
-get the data into a structured table format.
+00:09:34:000 --> 00:09:35:000
+But I should add, I think
 
 281
-00:19:10:000 --> 00:19:12:000
-They can be quicker and cheaper to set up.
+00:09:35:000 --> 00:09:36:000
+one of the most important things the
 
 282
-00:19:12:000 --> 00:19:16:000
-So you might be able to get going faster on actually analyzing your data and maybe
+00:09:37:000 --> 00:09:40:000
+mass produce architecture provides, is the glue that puts this all together.
 
 283
-00:19:16:000 --> 00:19:19:000
-for less cost. a bit debatable, but that&amp;#39;s the word on
+00:09:41:000 --> 00:09:42:000
+Because again, the user is
 
 284
-00:19:19:000 --> 00:19:22:000
-the street right now. They do provide massive scalability.
+00:09:42:000 --> 00:09:43:000
+only providing these functions, and
 
 285
-00:19:22:000 --> 00:19:26:000
-So they&amp;#39;re generally used for very, very large applications.
+00:09:43:000 --> 00:09:45:000
+the system will take care of
 
 286
-00:19:26:000 --> 00:19:30:000
-Often applications that don&amp;#39;t require the amount of consistency that a traditional
+00:09:45:000 --> 00:09:46:000
+all of the execution, moving the
 
 287
-00:19:30:000 --> 00:19:33:000
-system provides, and by relaxing the amount of consistency, they&amp;#39;ll give you
+00:09:47:000 --> 00:09:48:000
+data around and calling the
 
 288
-00:19:33:000 --> 00:19:38:000
-better performance, higher availability. The downsides of the this system tend to
+00:09:48:000 --> 00:09:51:000
+function over the large amounts of data that are being processed.
 
 289
-00:19:38:000 --> 00:19:40:000
-be the lack of a declarative query language.
+00:09:52:000 --> 00:09:53:000
+Well, all of that is pretty
 
 290
-00:19:40:000 --> 00:19:44:000
-That means more programming is generally involved when using the systems, and
+00:09:53:000 --> 00:09:54:000
+abstract, so let&#39;s look at
 
 291
-00:19:44:000 --> 00:19:47:000
-fewer guarantees are provided about consistency.
+00:09:55:000 --> 00:09:56:000
+a concrete example, and let&#39;s
 
 292
-00:19:47:000 --> 00:19:51:000
-In the next video we&amp;#39;ll specific NoSQL solutions and how they embody the
+00:09:56:000 --> 00:09:57:000
+go back to the domain that
 
 293
-00:19:51:000 --> 00:19:55:000
-adjectives that I&amp;#39;ve included here.
+00:09:58:000 --> 00:09:59:000
+I introduced in the previous video
+
+294
+00:09:59:000 --> 00:10:00:000
+of analyzing a web log,
+
+295
+00:10:01:000 --> 00:10:02:000
+where we have, in each record,
+
+296
+00:10:03:000 --> 00:10:04:000
+a user ID, URL, the
+
+297
+00:10:04:000 --> 00:10:07:000
+time of the access, and maybe some additional information.
+
+298
+00:10:08:000 --> 00:10:09:000
+And let&#39;s start out with a
+
+299
+00:10:09:000 --> 00:10:11:000
+fairly simple task, which is
+
+300
+00:10:11:000 --> 00:10:12:000
+that we want to count the
+
+301
+00:10:12:000 --> 00:10:14:000
+number of accesses for each
+
+302
+00:10:14:000 --> 00:10:17:000
+domain, where the domain is inside the URL.
+
+303
+00:10:17:000 --> 00:10:18:000
+So, for example, the domain
+
+304
+00:10:19:000 --> 00:10:21:000
+might be the stanford.edu domain, where
+
+305
+00:10:21:000 --> 00:10:22:000
+we have accesses to many
+
+306
+00:10:23:000 --> 00:10:24:000
+different URLs with that domain
+
+307
+00:10:25:000 --> 00:10:26:000
+and we&#39;re just going to count how
+
+308
+00:10:26:000 --> 00:10:27:000
+many accesses there have been to Stanford.
+
+309
+00:10:29:000 --> 00:10:30:000
+So to perform this task, the
+
+310
+00:10:30:000 --> 00:10:31:000
+user has to provide a
+
+311
+00:10:32:000 --> 00:10:33:000
+map function and a reduce function.
+
+312
+00:10:34:000 --> 00:10:35:000
+Let&#39;s look at what they do.
+
+313
+00:10:35:000 --> 00:10:37:000
+The map function is going to take a record.
+
+314
+00:10:38:000 --> 00:10:39:000
+We&#39;ll assume that the reader
+
+315
+00:10:39:000 --> 00:10:40:000
+has already extracted the record
+
+316
+00:10:40:000 --> 00:10:42:000
+from the file and it provides it
+
+317
+00:10:42:000 --> 00:10:44:000
+in this format with these four fields.
+
+318
+00:10:45:000 --> 00:10:46:000
+And what the map function is
+
+319
+00:10:46:000 --> 00:10:47:000
+going to do is simply look
+
+320
+00:10:48:000 --> 00:10:49:000
+inside the record and extract
+
+321
+00:10:50:000 --> 00:10:51:000
+the domain from the URL,
+
+322
+00:10:52:000 --> 00:10:53:000
+and it&#39;s going to produce as
+
+323
+00:10:53:000 --> 00:10:55:000
+output from that record
+
+324
+00:10:55:000 --> 00:10:57:000
+the domain as the key,
+
+325
+00:10:57:000 --> 00:10:59:000
+so this is the key, and then
+
+326
+00:10:59:000 --> 00:11:00:000
+for this, we can just
+
+327
+00:11:00:000 --> 00:11:01:000
+have a null value as the
+
+328
+00:11:01:000 --> 00:11:03:000
+value, we&#39;re not going to actually need to use a value.
+
+329
+00:11:04:000 --> 00:11:06:000
+And so that&#39;s the job of the mapper, pretty simple.
+
+330
+00:11:07:000 --> 00:11:09:000
+Now what does the reduce function do?
+
+331
+00:11:09:000 --> 00:11:10:000
+The reduce function is going
+
+332
+00:11:10:000 --> 00:11:12:000
+to take a domain, because
+
+333
+00:11:13:000 --> 00:11:13:000
+that&#39;s the key and that&#39;s
+
+334
+00:11:14:000 --> 00:11:15:000
+the first argument, and then it&#39;s
+
+335
+00:11:15:000 --> 00:11:16:000
+going to take a list of values,
+
+336
+00:11:16:000 --> 00:11:17:000
+in this case, it&#39;s going to be
+
+337
+00:11:17:000 --> 00:11:20:000
+a list of null values, and
+
+338
+00:11:20:000 --> 00:11:21:000
+what&#39;s interesting is that
+
+339
+00:11:21:000 --> 00:11:22:000
+each one of these null values
+
+340
+00:11:22:000 --> 00:11:24:000
+represents one access to that domain.
+
+341
+00:11:24:000 --> 00:11:26:000
+So all the reduce function
+
+342
+00:11:26:000 --> 00:11:27:000
+needs to do, is count up
+
+343
+00:11:28:000 --> 00:11:29:000
+how many nulls there are for
+
+344
+00:11:29:000 --> 00:11:30:000
+each domain, so it&#39;s going
+
+345
+00:11:31:000 --> 00:11:32:000
+to produce as its result,
+
+346
+00:11:33:000 --> 00:11:35:000
+the domain and the count.
+
+347
+00:11:37:000 --> 00:11:38:000
+And believe it or not, we&#39;ve
+
+348
+00:11:38:000 --> 00:11:39:000
+solved their problem with just
+
+349
+00:11:40:000 --> 00:11:41:000
+a little bit of code, just
+
+350
+00:11:41:000 --> 00:11:42:000
+a code to find the
+
+351
+00:11:43:000 --> 00:11:44:000
+domain inside the URL from
+
+352
+00:11:44:000 --> 00:11:45:000
+our record, and then this
+
+353
+00:11:45:000 --> 00:11:47:000
+simple code to count up the number of NULLs.
+
+354
+00:11:48:000 --> 00:11:50:000
+The system will take care of
+
+355
+00:11:50:000 --> 00:11:52:000
+shipping the records to
+
+356
+00:11:52:000 --> 00:11:54:000
+the right nodes to perform the
+
+357
+00:11:54:000 --> 00:11:55:000
+tasks in parallel and then
+
+358
+00:11:56:000 --> 00:11:57:000
+re-shipping them, so all of
+
+359
+00:11:58:000 --> 00:11:59:000
+the records, for all of
+
+360
+00:11:59:000 --> 00:12:00:000
+the outputs for a particular
+
+361
+00:12:00:000 --> 00:12:02:000
+domain, are in the same place and can be counted.
+
+362
+00:12:02:000 --> 00:12:04:000
+Now let me give an example
+
+363
+00:12:04:000 --> 00:12:06:000
+of how that combiner function will be used.
+
+364
+00:12:07:000 --> 00:12:08:000
+The combiner function as a reminder
+
+365
+00:12:09:000 --> 00:12:10:000
+will operate at the same
+
+366
+00:12:10:000 --> 00:12:11:000
+node as a mapper and
+
+367
+00:12:11:000 --> 00:12:13:000
+do some sort of pre-aggregation of the data.
+
+368
+00:12:14:000 --> 00:12:16:000
+So for example, we could
+
+369
+00:12:16:000 --> 00:12:17:000
+use a combiner, we&#39;ll put
+
+370
+00:12:18:000 --> 00:12:19:000
+that right here after the
+
+371
+00:12:19:000 --> 00:12:20:000
+mapper and the combined
+
+372
+00:12:21:000 --> 00:12:22:000
+function is going to
+
+373
+00:12:22:000 --> 00:12:25:000
+take the domain and
+
+374
+00:12:25:000 --> 00:12:26:000
+the list of NULLs, actually it&#39;s
+
+375
+00:12:26:000 --> 00:12:27:000
+going to do exactly what the
+
+376
+00:12:28:000 --> 00:12:29:000
+reduce function was doing
+
+377
+00:12:30:000 --> 00:12:32:000
+and it&#39;s going to produce the domain and account.
+
+378
+00:12:34:000 --> 00:12:36:000
+And so that at each individual
+
+379
+00:12:36:000 --> 00:12:37:000
+node we&#39;ll count up how many
+
+380
+00:12:38:000 --> 00:12:39:000
+accesses there were to that
+
+381
+00:12:40:000 --> 00:12:41:000
+domain in the data that&#39;s
+
+382
+00:12:41:000 --> 00:12:43:000
+being processed at that node, but
+
+383
+00:12:43:000 --> 00:12:44:000
+then when we get to the
+
+384
+00:12:44:000 --> 00:12:45:000
+reduce function we may get
+
+385
+00:12:45:000 --> 00:12:47:000
+a bunch of
+
+386
+00:12:48:000 --> 00:12:49:000
+those records, so this list
+
+387
+00:12:49:000 --> 00:12:50:000
+of NULL here now becomes a
+
+388
+00:12:51:000 --> 00:12:52:000
+count that&#39;s what arrives
+
+389
+00:12:52:000 --> 00:12:53:000
+at the reduce function, the output
+
+390
+00:12:54:000 --> 00:12:55:000
+of the combine, and then instead
+
+391
+00:12:56:000 --> 00:12:57:000
+of doing a count here we
+
+392
+00:12:57:000 --> 00:12:58:000
+do a sum and that
+
+393
+00:12:58:000 --> 00:12:59:000
+will give us the right answer
+
+394
+00:13:00:000 --> 00:13:01:000
+as well and that will be
+
+395
+00:13:01:000 --> 00:13:02:000
+more efficient again because of
+
+396
+00:13:02:000 --> 00:13:04:000
+the pre-aggregation that occurs right
+
+397
+00:13:04:000 --> 00:13:06:000
+in the same node that&#39;s processing the map function.
+
+398
+00:13:07:000 --> 00:13:10:000
+Whoops, I made one mistake there. Sorry about that.
+
+399
+00:13:10:000 --> 00:13:11:000
+Actually this count here that
+
+400
+00:13:11:000 --> 00:13:12:000
+goes to the reduce function is
+
+401
+00:13:13:000 --> 00:13:14:000
+a list of counts,
+
+402
+00:13:15:000 --> 00:13:15:000
+right, because we&#39;re going to get
+
+403
+00:13:16:000 --> 00:13:17:000
+one of these from each
+
+404
+00:13:17:000 --> 00:13:20:000
+of the mappers, and then we add those list of counts.
+
+405
+00:13:20:000 --> 00:13:23:000
+That&#39;s the sum that we perform here, sorry about that small mistake.
+
+406
+00:13:24:000 --> 00:13:25:000
+Now let&#39;s modify the problem.
+
+407
+00:13:26:000 --> 00:13:28:000
+We&#39;ll take the same data but
+
+408
+00:13:28:000 --> 00:13:29:000
+instead of just counting how
+
+409
+00:13:29:000 --> 00:13:30:000
+many accesses we have to
+
+410
+00:13:31:000 --> 00:13:32:000
+each domain, let&#39;s compute some
+
+411
+00:13:33:000 --> 00:13:35:000
+total value of the accesses for each domain.
+
+412
+00:13:35:000 --> 00:13:36:000
+And we might do
+
+413
+00:13:37:000 --> 00:13:38:000
+that based on something that we
+
+414
+00:13:38:000 --> 00:13:39:000
+see in the additional information, for
+
+415
+00:13:40:000 --> 00:13:41:000
+example, how valuable the
+
+416
+00:13:42:000 --> 00:13:43:000
+user is, whether the user went
+
+417
+00:13:43:000 --> 00:13:44:000
+off and bought something, something like that.
+
+418
+00:13:45:000 --> 00:13:46:000
+So let&#39;s modify our map and
+
+419
+00:13:47:000 --> 00:13:49:000
+reduce functions for this slightly enhanced problem.
+
+420
+00:13:50:000 --> 00:13:51:000
+Now our map function again
+
+421
+00:13:51:000 --> 00:13:53:000
+is going to take a record, and
+
+422
+00:13:53:000 --> 00:13:54:000
+this time it&#39;s not going to
+
+423
+00:13:54:000 --> 00:13:55:000
+look only at the URL,
+
+424
+00:13:55:000 --> 00:13:56:000
+but it&#39;s also going to look
+
+425
+00:13:56:000 --> 00:13:59:000
+inside the additional information, and
+
+426
+00:13:59:000 --> 00:14:00:000
+what it will produce, is the
+
+427
+00:14:00:000 --> 00:14:01:000
+domain that it extracted
+
+428
+00:14:02:000 --> 00:14:03:000
+from the URL and then
+
+429
+00:14:03:000 --> 00:14:04:000
+let&#39;s say some kind of score
+
+430
+00:14:05:000 --> 00:14:06:000
+on how valuable that access
+
+431
+00:14:07:000 --> 00:14:09:000
+was, based on whatever it sees inside additional information.
+
+432
+00:14:10:000 --> 00:14:12:000
+The reduced function, then, is
+
+433
+00:14:12:000 --> 00:14:13:000
+going to take a domain,
+
+434
+00:14:14:000 --> 00:14:15:000
+and it&#39;s going to take a list
+
+435
+00:14:16:000 --> 00:14:18:000
+of scores for that
+
+436
+00:14:18:000 --> 00:14:20:000
+domain and then, similar
+
+437
+00:14:20:000 --> 00:14:22:000
+to what we had previously, the output
+
+438
+00:14:22:000 --> 00:14:23:000
+is going to be the domain
+
+439
+00:14:24:000 --> 00:14:25:000
+and the sum of those scores.
+
+440
+00:14:27:000 --> 00:14:28:000
+Now, one of the interesting things
+
+441
+00:14:28:000 --> 00:14:30:000
+here is, how the map function
+
+442
+00:14:30:000 --> 00:14:31:000
+interacts with this additional information,
+
+443
+00:14:33:000 --> 00:14:33:000
+because the map function is going
+
+444
+00:14:33:000 --> 00:14:35:000
+to have code, that is going
+
+445
+00:14:35:000 --> 00:14:36:000
+to look in the information and
+
+446
+00:14:36:000 --> 00:14:38:000
+it&#39;s going to determine a score based on what it sees.
+
+447
+00:14:39:000 --> 00:14:41:000
+If we change what&#39;s available
+
+448
+00:14:41:000 --> 00:14:43:000
+in additional information, then we
+
+449
+00:14:43:000 --> 00:14:44:000
+can modify the map function,
+
+450
+00:14:44:000 --> 00:14:45:000
+but everything else can stay
+
+451
+00:14:45:000 --> 00:14:46:000
+the same, or if we
+
+452
+00:14:46:000 --> 00:14:48:000
+say we refine how we extract the score.
+
+453
+00:14:49:000 --> 00:14:51:000
+So that is one benefit, to
+
+454
+00:14:51:000 --> 00:14:52:000
+some extent, of the the
+
+455
+00:14:52:000 --> 00:14:53:000
+MapReduce framework, because the
+
+456
+00:14:54:000 --> 00:14:55:000
+computation of the score is
+
+457
+00:14:55:000 --> 00:14:57:000
+just embedded in this one piece of code.
+
+458
+00:14:58:000 --> 00:14:59:000
+Now let&#39;s modify our example further,
+
+459
+00:15:00:000 --> 00:15:01:000
+similar to the modification we
+
+460
+00:15:02:000 --> 00:15:03:000
+made in the earlier video, let&#39;s
+
+461
+00:15:03:000 --> 00:15:04:000
+suppose that in addition to
+
+462
+00:15:05:000 --> 00:15:07:000
+the web blog we have separate information about the user.
+
+463
+00:15:08:000 --> 00:15:09:000
+So, separately from what might
+
+464
+00:15:09:000 --> 00:15:10:000
+be an additional info, we have
+
+465
+00:15:10:000 --> 00:15:12:000
+in a different data set,
+
+466
+00:15:12:000 --> 00:15:15:000
+the user ID, the name, the age, the gender and so forth.
+
+467
+00:15:15:000 --> 00:15:16:000
+And now let&#39;s say that we
+
+468
+00:15:16:000 --> 00:15:17:000
+again want to find the
+
+469
+00:15:18:000 --> 00:15:19:000
+total value of the
+
+470
+00:15:19:000 --> 00:15:21:000
+accesses for each domain, but now
+
+471
+00:15:21:000 --> 00:15:22:000
+the value is computed using
+
+472
+00:15:23:000 --> 00:15:26:000
+the user attributes that we get from the separate data set.
+
+473
+00:15:27:000 --> 00:15:29:000
+Well, this frankly, in map reduce, is hard to do.
+
+474
+00:15:30:000 --> 00:15:32:000
+It effectively involves joining these
+
+475
+00:15:32:000 --> 00:15:34:000
+two data sets, not something
+
+476
+00:15:34:000 --> 00:15:36:000
+that&#39;s supported natively in MapReduce.
+
+477
+00:15:36:000 --> 00:15:37:000
+So now we&#39;ve kind of hit
+
+478
+00:15:37:000 --> 00:15:38:000
+the limit of what&#39;s very
+
+479
+00:15:38:000 --> 00:15:39:000
+convenient to do in the
+
+480
+00:15:40:000 --> 00:15:41:000
+map reduce framework, but we
+
+481
+00:15:41:000 --> 00:15:44:000
+will momentarily see that there are solutions to that as well.
+
+482
+00:15:45:000 --> 00:15:46:000
+So, to summarize, the MapReduce
+
+483
+00:15:46:000 --> 00:15:48:000
+framework has no built-in data model.
+
+484
+00:15:49:000 --> 00:15:51:000
+The data just starts and files and it ends in files.
+
+485
+00:15:51:000 --> 00:15:52:000
+The user just needs to
+
+486
+00:15:53:000 --> 00:15:54:000
+provide specific functions, the
+
+487
+00:15:54:000 --> 00:15:56:000
+map function, reduce function, reader
+
+488
+00:15:56:000 --> 00:15:58:000
+and writer and optionally, a combiner.
+
+489
+00:15:59:000 --> 00:16:00:000
+And the system will provide all
+
+490
+00:16:00:000 --> 00:16:02:000
+of the execution glue, it will
+
+491
+00:16:02:000 --> 00:16:04:000
+guarantee the tolerance to
+
+492
+00:16:04:000 --> 00:16:05:000
+system failures and it
+
+493
+00:16:05:000 --> 00:16:07:000
+provides scalability by doing the
+
+494
+00:16:08:000 --> 00:16:09:000
+assignment of the processing tasks,
+
+495
+00:16:09:000 --> 00:16:12:000
+to say an increasing number of computing nodes.
+
+496
+00:16:13:000 --> 00:16:14:000
+So when the MapReduce framework
+
+497
+00:16:14:000 --> 00:16:16:000
+came out of Google and the
+
+498
+00:16:16:000 --> 00:16:20:000
+Hadoop open source implementation was released, there&#39;s a lot of excitement.
+
+499
+00:16:21:000 --> 00:16:22:000
+It was pretty exciting because you
+
+500
+00:16:22:000 --> 00:16:23:000
+could just write a couple of
+
+501
+00:16:23:000 --> 00:16:25:000
+simple functions and then
+
+502
+00:16:25:000 --> 00:16:27:000
+the system would provide the
+
+503
+00:16:27:000 --> 00:16:29:000
+processing of massive amounts of data
+
+504
+00:16:29:000 --> 00:16:30:000
+through those functions, and it
+
+505
+00:16:30:000 --> 00:16:31:000
+would be scalable, it would be
+
+506
+00:16:31:000 --> 00:16:33:000
+efficient, and it would be fault tolerant.
+
+507
+00:16:34:000 --> 00:16:36:000
+But over time, people realized
+
+508
+00:16:36:000 --> 00:16:37:000
+that they don&#39;t always want that
+
+509
+00:16:38:000 --> 00:16:40:000
+low level programming, and our
+
+510
+00:16:40:000 --> 00:16:42:000
+favorite traditional notions of
+
+511
+00:16:42:000 --> 00:16:44:000
+database schemas and declarative
+
+512
+00:16:44:000 --> 00:16:45:000
+queries started to be missed.
+
+513
+00:16:46:000 --> 00:16:48:000
+And so what was developed is
+
+514
+00:16:48:000 --> 00:16:50:000
+some languages that actually sit
+
+515
+00:16:50:000 --> 00:16:52:000
+on top of Hadoop or the MapReduce framework.
+
+516
+00:16:53:000 --> 00:16:54:000
+One of them is called Hive,
+
+517
+00:16:54:000 --> 00:16:57:000
+and Hive offers schemas and
+
+518
+00:16:57:000 --> 00:16:59:000
+a language that looks very much like SQL.
+
+519
+00:17:00:000 --> 00:17:01:000
+Another language is called Pig.
+
+520
+00:17:02:000 --> 00:17:03:000
+Pig is a little bit more imperative.
+
+521
+00:17:03:000 --> 00:17:04:000
+In other words, it&#39;s a bit
+
+522
+00:17:04:000 --> 00:17:06:000
+more of a statement language, but
+
+523
+00:17:06:000 --> 00:17:07:000
+the fundamental constructs in Pig
+
+524
+00:17:08:000 --> 00:17:10:000
+are still relational operators, and
+
+525
+00:17:10:000 --> 00:17:11:000
+you could almost think of a
+
+526
+00:17:11:000 --> 00:17:12:000
+Pig script as being a little
+
+527
+00:17:12:000 --> 00:17:14:000
+bit like those statements of relational
+
+528
+00:17:14:000 --> 00:17:16:000
+algebra that we saw way
+
+529
+00:17:16:000 --> 00:17:19:000
+back when, with the addition of loops and so forth.
+
+530
+00:17:19:000 --> 00:17:21:000
+Both of these languages are
+
+531
+00:17:21:000 --> 00:17:23:000
+what the user sees, and they
+
+532
+00:17:23:000 --> 00:17:24:000
+compile to a workflow
+
+533
+00:17:25:000 --> 00:17:26:000
+or you think of that as a
+
+534
+00:17:26:000 --> 00:17:28:000
+graph - of Hadoop jobs.
+
+535
+00:17:29:000 --> 00:17:30:000
+Hadoop, again, being the open source
+
+536
+00:17:31:000 --> 00:17:32:000
+implementation of map and
+
+537
+00:17:32:000 --> 00:17:33:000
+reduce, any job being one
+
+538
+00:17:34:000 --> 00:17:36:000
+instance of map and
+
+539
+00:17:36:000 --> 00:17:38:000
+reduce like that big picture I showed before.
+
+540
+00:17:39:000 --> 00:17:40:000
+And one thing I should mention,
+
+541
+00:17:40:000 --> 00:17:42:000
+as of November, 2011, which
+
+542
+00:17:42:000 --> 00:17:44:000
+it is now, a really significant
+
+543
+00:17:45:000 --> 00:17:48:000
+portion of Hadoop jobs
+
+544
+00:17:48:000 --> 00:17:51:000
+are actually generated by Hive and Pig, or Hive or Pig.
+
+545
+00:17:51:000 --> 00:17:52:000
+So more and more users
+
+546
+00:17:53:000 --> 00:17:54:000
+are actually choosing to use
+
+547
+00:17:54:000 --> 00:17:56:000
+a higher level language rather
+
+548
+00:17:56:000 --> 00:17:58:000
+than program the MapReduce framework directly.
+
+549
+00:17:59:000 --> 00:18:02:000
+Now I&#39;d be remiss if I didn&#39;t also mention one other system.
+
+550
+00:18:02:000 --> 00:18:04:000
+There&#39;s a system called Driad that
+
+551
+00:18:04:000 --> 00:18:06:000
+allows users to specify a
+
+552
+00:18:06:000 --> 00:18:09:000
+workflow, sort of similar to
+
+553
+00:18:09:000 --> 00:18:10:000
+the workflow that might be generated by
+
+554
+00:18:10:000 --> 00:18:11:000
+Hive and Pig, so it&#39;s
+
+555
+00:18:11:000 --> 00:18:14:000
+more general than just one MapReduce job.
+
+556
+00:18:14:000 --> 00:18:15:000
+And there&#39;s also a language called
+
+557
+00:18:16:000 --> 00:18:17:000
+Driadlink that sits on
+
+558
+00:18:17:000 --> 00:18:19:000
+top of Driad and compiles
+
+559
+00:18:19:000 --> 00:18:20:000
+to Driad, sort of in the
+
+560
+00:18:21:000 --> 00:18:22:000
+same way that Hive and
+
+561
+00:18:22:000 --> 00:18:25:000
+Pig compile to a workflow of MapReduce jobs.
+
+562
+00:18:26:000 --> 00:18:28:000
+Now let&#39;s move on to talk about key value stores.
+
+563
+00:18:29:000 --> 00:18:32:000
+As a reminder, the Hadoop or
+
+564
+00:18:32:000 --> 00:18:33:000
+MapReduce framework is designed
+
+565
+00:18:34:000 --> 00:18:37:000
+for more OLAP-type operations, or
+
+566
+00:18:37:000 --> 00:18:39:000
+analytical operations that involve scanning
+
+567
+00:18:40:000 --> 00:18:40:000
+most of the data, and I
+
+568
+00:18:41:000 --> 00:18:43:000
+think that was very clear from what the MapReduce framework does.
+
+569
+00:18:44:000 --> 00:18:45:000
+Where key value stores are
+
+570
+00:18:45:000 --> 00:18:47:000
+designed more for these OLTP
+
+571
+00:18:48:000 --> 00:18:49:000
+style applications, where you&#39;re doing
+
+572
+00:18:49:000 --> 00:18:51:000
+small operations, maybe over
+
+573
+00:18:52:000 --> 00:18:54:000
+a single record, in a massive database.
+
+574
+00:18:55:000 --> 00:18:57:000
+And so the key value stores are extremely simple.
+
+575
+00:18:58:000 --> 00:19:00:000
+The data model for key
+
+576
+00:19:00:000 --> 00:19:01:000
+value stores are just pairs
+
+577
+00:19:02:000 --> 00:19:03:000
+of keys and values, not surprisingly.
+
+578
+00:19:04:000 --> 00:19:07:000
+And the basic operations are simply
+
+579
+00:19:07:000 --> 00:19:09:000
+to insert a new record,
+
+580
+00:19:09:000 --> 00:19:10:000
+so you provide a key and
+
+581
+00:19:10:000 --> 00:19:11:000
+value, to fetch a
+
+582
+00:19:12:000 --> 00:19:13:000
+record by it&#39;s key, to update
+
+583
+00:19:14:000 --> 00:19:16:000
+the contents, the value in
+
+584
+00:19:16:000 --> 00:19:17:000
+the record for a given
+
+585
+00:19:17:000 --> 00:19:19:000
+key, or to delete the record with the given key.
+
+586
+00:19:20:000 --> 00:19:21:000
+So, that&#39;s it and with
+
+587
+00:19:21:000 --> 00:19:22:000
+that simple set of operations
+
+588
+00:19:23:000 --> 00:19:25:000
+as you can imagine, the implementation
+
+589
+00:19:26:000 --> 00:19:27:000
+is focusing on doing these
+
+590
+00:19:27:000 --> 00:19:29:000
+simple operations over massive databases
+
+591
+00:19:30:000 --> 00:19:32:000
+very, very quickly. So, again
+
+592
+00:19:32:000 --> 00:19:34:000
+like Hadoop, efficiency, scalability,
+
+593
+00:19:34:000 --> 00:19:35:000
+and fault tolerance are the
+
+594
+00:19:35:000 --> 00:19:37:000
+most important things because we&#39;re
+
+595
+00:19:37:000 --> 00:19:38:000
+looking at applications with massive
+
+596
+00:19:39:000 --> 00:19:40:000
+amounts of data and very stringent
+
+597
+00:19:41:000 --> 00:19:42:000
+performance requirements. So the
+
+598
+00:19:43:000 --> 00:19:44:000
+way the implementation works at
+
+599
+00:19:44:000 --> 00:19:45:000
+a very, very high level, it&#39;s
+
+600
+00:19:45:000 --> 00:19:47:000
+actually quite complicated to make
+
+601
+00:19:47:000 --> 00:19:49:000
+it work very well, is that
+
+602
+00:19:49:000 --> 00:19:50:000
+the records are distributed to the
+
+603
+00:19:50:000 --> 00:19:52:000
+nodes, the computing nodes
+
+604
+00:19:52:000 --> 00:19:54:000
+based on the key, probably a hash value over the key.
+
+605
+00:19:55:000 --> 00:19:57:000
+So to find the record for a given key can be very quick.
+
+606
+00:19:58:000 --> 00:19:58:000
+You go straight to the node.
+
+607
+00:19:59:000 --> 00:20:00:000
+In fact, the records may be
+
+608
+00:20:01:000 --> 00:20:02:000
+replicated across multiple nodes
+
+609
+00:20:03:000 --> 00:20:04:000
+and that gives you both efficiency,
+
+610
+00:20:05:000 --> 00:20:06:000
+you can go to maybe a lightly
+
+611
+00:20:06:000 --> 00:20:07:000
+loaded node, it gives you
+
+612
+00:20:07:000 --> 00:20:09:000
+fault tolerance if a node fails.
+
+613
+00:20:10:000 --> 00:20:12:000
+The notion of the
+
+614
+00:20:12:000 --> 00:20:14:000
+actions and key value stores are very simple.
+
+615
+00:20:14:000 --> 00:20:16:000
+One operation itself is a
+
+616
+00:20:16:000 --> 00:20:17:000
+transaction, so we don&#39;t have
+
+617
+00:20:17:000 --> 00:20:19:000
+the idea of grouping a bunch of operations into transactions.
+
+618
+00:20:23:000 --> 00:20:24:000
+And furthermore, they implement something called eventual consistency.
+
+619
+00:20:24:000 --> 00:20:25:000
+And that says that the replicas
+
+620
+00:20:27:000 --> 00:20:28:000
+of a single record can
+
+621
+00:20:28:000 --> 00:20:30:000
+actually diverge in their value for some point of time.
+
+622
+00:20:31:000 --> 00:20:34:000
+What eventual consistency specifies is
+
+623
+00:20:34:000 --> 00:20:35:000
+that if all operations stop,
+
+624
+00:20:36:000 --> 00:20:37:000
+then the system will become
+
+625
+00:20:38:000 --> 00:20:39:000
+consistent with all copies of
+
+626
+00:20:39:000 --> 00:20:41:000
+each record being the same.
+
+627
+00:20:42:000 --> 00:20:43:000
+Now, unfortunately, as is sometimes
+
+628
+00:20:44:000 --> 00:20:45:000
+the case, these very simple operations
+
+629
+00:20:46:000 --> 00:20:48:000
+and this simple data model weren&#39;t
+
+630
+00:20:48:000 --> 00:20:49:000
+always quite enough, and so
+
+631
+00:20:50:000 --> 00:20:51:000
+some key value stores, but not
+
+632
+00:20:51:000 --> 00:20:53:000
+all I would say, have a
+
+633
+00:20:54:000 --> 00:20:56:000
+concept called columns that occur within the value.
+
+634
+00:20:56:000 --> 00:20:57:000
+So the value here has a
+
+635
+00:20:57:000 --> 00:20:59:000
+little bit more structure to
+
+636
+00:20:59:000 --> 00:21:01:000
+it than just a blob of bits.
+
+637
+00:21:02:000 --> 00:21:03:000
+And the columns will typically
+
+638
+00:21:03:000 --> 00:21:06:000
+be kind of like an embedded key value stores.
+
+639
+00:21:07:000 --> 00:21:09:000
+One thing that&#39;s important is they don&#39;t require uniform column.
+
+640
+00:21:09:000 --> 00:21:10:000
+So none of the key value
+
+641
+00:21:10:000 --> 00:21:12:000
+stores are as strict in
+
+642
+00:21:12:000 --> 00:21:13:000
+their structure as a relational
+
+643
+00:21:14:000 --> 00:21:16:000
+database system would be.
+
+644
+00:21:16:000 --> 00:21:17:000
+The other addition that some
+
+645
+00:21:18:000 --> 00:21:20:000
+allow is a fetch on a range of keys.
+
+646
+00:21:20:000 --> 00:21:21:000
+So this might say I want
+
+647
+00:21:21:000 --> 00:21:22:000
+to get all keys say between
+
+648
+00:21:23:000 --> 00:21:25:000
+two and ten, and
+
+649
+00:21:26:000 --> 00:21:27:000
+so that requires a different
+
+650
+00:21:27:000 --> 00:21:29:000
+type of implementation as you can
+
+651
+00:21:29:000 --> 00:21:30:000
+imagine, but it does allow
+
+652
+00:21:30:000 --> 00:21:31:000
+that operation to be performed
+
+653
+00:21:32:000 --> 00:21:34:000
+efficiently if that is something that the application needs.
+
+654
+00:21:36:000 --> 00:21:37:000
+Just a few examples of key value stores.
+
+655
+00:21:38:000 --> 00:21:39:000
+This is not an exhaustive list, there
+
+656
+00:21:39:000 --> 00:21:40:000
+are many more and this is
+
+657
+00:21:41:000 --> 00:21:42:000
+only November 2011, so things
+
+658
+00:21:43:000 --> 00:21:44:000
+will change over time.
+
+659
+00:21:45:000 --> 00:21:46:000
+But some of the
+
+660
+00:21:46:000 --> 00:21:47:000
+more prominent key value stores are listed
+
+661
+00:21:48:000 --> 00:21:49:000
+here - Google&#39;s Big Table, Amazon,
+
+662
+00:21:50:000 --> 00:21:51:000
+Dynamo, Cassandra, which is
+
+663
+00:21:51:000 --> 00:21:53:000
+an open source, Voldemort, H-base,
+
+664
+00:21:54:000 --> 00:21:56:000
+and again there are many others. These are just a few example.
+
+665
+00:21:57:000 --> 00:21:59:000
+Now let&#39;s talk about document stores.
+
+666
+00:21:59:000 --> 00:22:01:000
+Actually document stores are
+
+667
+00:22:01:000 --> 00:22:02:000
+very much like key value
+
+668
+00:22:02:000 --> 00:22:04:000
+stores, except the value itself is a document.
+
+669
+00:22:05:000 --> 00:22:07:000
+So the data model is a
+
+670
+00:22:07:000 --> 00:22:09:000
+key document pairs and
+
+671
+00:22:09:000 --> 00:22:10:000
+what&#39;s interesting now is that
+
+672
+00:22:10:000 --> 00:22:12:000
+the document in document stores
+
+673
+00:22:13:000 --> 00:22:14:000
+is typically a known type
+
+674
+00:22:15:000 --> 00:22:16:000
+of structure so the document
+
+675
+00:22:16:000 --> 00:22:18:000
+might contain JSON formatted data
+
+676
+00:22:19:000 --> 00:22:21:000
+javascript object notation.
+
+677
+00:22:22:000 --> 00:22:23:000
+It might contain XML, which we
+
+678
+00:22:23:000 --> 00:22:25:000
+have learned about, or other semi-structured formats.
+
+679
+00:22:26:000 --> 00:22:28:000
+The basic operations are very
+
+680
+00:22:28:000 --> 00:22:30:000
+similar though to what we
+
+681
+00:22:31:000 --> 00:22:32:000
+say in key value stores.
+
+682
+00:22:32:000 --> 00:22:35:000
+You can insert a new document based on a key.
+
+683
+00:22:35:000 --> 00:22:36:000
+We can fetch based on a key.
+
+684
+00:22:37:000 --> 00:22:40:000
+Modify the contents associated with key and delete
+
+685
+00:22:41:000 --> 00:22:43:000
+the record associated with a specific key.
+
+686
+00:22:44:000 --> 00:22:46:000
+But also very important is
+
+687
+00:22:46:000 --> 00:22:47:000
+that there is a fetch
+
+688
+00:22:47:000 --> 00:22:48:000
+operation based on the document
+
+689
+00:22:49:000 --> 00:22:50:000
+contents, and this is
+
+690
+00:22:50:000 --> 00:22:53:000
+very system/format specific, what
+
+691
+00:22:54:000 --> 00:22:56:000
+the operations would be. So
+
+692
+00:22:56:000 --> 00:22:58:000
+there is not a standardized fetched
+
+693
+00:22:58:000 --> 00:23:00:000
+query language at this point in time.
+
+694
+00:23:01:000 --> 00:23:02:000
+Again a few example systems,
+
+695
+00:23:02:000 --> 00:23:04:000
+a not exhaustive list,
+
+696
+00:23:04:000 --> 00:23:06:000
+are the systems Couch-DB,
+
+697
+00:23:06:000 --> 00:23:08:000
+Mongo DB, Simple DB.
+
+698
+00:23:08:000 --> 00:23:10:000
+They all seem to have DB in their name.
+
+699
+00:23:11:000 --> 00:23:12:000
+And again, this is November
+
+700
+00:23:12:000 --> 00:23:13:000
+2011, things that will
+
+701
+00:23:13:000 --> 00:23:15:000
+undoubtedly change.
+
+702
+00:23:16:000 --> 00:23:19:000
+One SQL system I&#39;d like to cover is graph database systems.
+
+703
+00:23:20:000 --> 00:23:21:000
+Graph database system, as the
+
+704
+00:23:21:000 --> 00:23:23:000
+name implies, are designed for
+
+705
+00:23:23:000 --> 00:23:25:000
+storing and running queries
+
+706
+00:23:25:000 --> 00:23:27:000
+or other operations over very large
+
+707
+00:23:27:000 --> 00:23:28:000
+graphs, the data model
+
+708
+00:23:29:000 --> 00:23:30:000
+is that every object is
+
+709
+00:23:30:000 --> 00:23:33:000
+either a node or it&#39;s an edge between nodes.
+
+710
+00:23:34:000 --> 00:23:36:000
+Nodes may have properties, very
+
+711
+00:23:36:000 --> 00:23:37:000
+often ID is a
+
+712
+00:23:37:000 --> 00:23:38:000
+required property of a,
+
+713
+00:23:38:000 --> 00:23:40:000
+and edges may have labels
+
+714
+00:23:41:000 --> 00:23:42:000
+so you can think of them as rolls.
+
+715
+00:23:43:000 --> 00:23:44:000
+So I think what&#39;s best to understand,
+
+716
+00:23:44:000 --> 00:23:45:000
+this is just to see an
+
+717
+00:23:45:000 --> 00:23:46:000
+example. My example is
+
+718
+00:23:46:000 --> 00:23:47:000
+going to be a very small
+
+719
+00:23:48:000 --> 00:23:49:000
+social network, a tiny one actually.
+
+720
+00:23:49:000 --> 00:23:51:000
+A similar one to what
+
+721
+00:23:51:000 --> 00:23:53:000
+was used for some of our SQL exercises.
+
+722
+00:23:54:000 --> 00:23:55:000
+So let&#39;s start with three
+
+723
+00:23:56:000 --> 00:23:57:000
+nodes, and the nodes are
+
+724
+00:23:57:000 --> 00:23:58:000
+gonna represent people, and the
+
+725
+00:23:58:000 --> 00:24:00:000
+properties of the nodes are
+
+726
+00:24:00:000 --> 00:24:02:000
+going to be ID, name, and grade.
+
+727
+00:24:03:000 --> 00:24:04:000
+And so each node is
+
+728
+00:24:05:000 --> 00:24:07:000
+going to have a value for the ID, name, and grade.
+
+729
+00:24:08:000 --> 00:24:09:000
+For this one, we&#39;ll make
+
+730
+00:24:10:000 --> 00:24:11:000
+it one, Amy in
+
+731
+00:24:12:000 --> 00:24:14:000
+grade nine, and we&#39;ll have two more.
+
+732
+00:24:15:000 --> 00:24:16:000
+So here are the three nodes representing
+
+733
+00:24:17:000 --> 00:24:18:000
+three people in our social graph.
+
+734
+00:24:19:000 --> 00:24:21:000
+We also have ID2, which
+
+735
+00:24:21:000 --> 00:24:24:000
+is Ben in grade nine, and ID3, which is Carol in grade ten.
+
+736
+00:24:25:000 --> 00:24:25:000
+Depending on the system, the
+
+737
+00:24:25:000 --> 00:24:26:000
+nodes may or may not have
+
+738
+00:24:27:000 --> 00:24:28:000
+to have uniform key value
+
+739
+00:24:28:000 --> 00:24:31:000
+pairs within the most system won&#39;t be that stringent.
+
+740
+00:24:32:000 --> 00:24:35:000
+Then in addition to the nodes, we have the edges between the nodes.
+
+741
+00:24:36:000 --> 00:24:37:000
+Typically they would be directed edges.
+
+742
+00:24:38:000 --> 00:24:41:000
+So, let&#39;s make two different types of edges.
+
+743
+00:24:41:000 --> 00:24:44:000
+Let&#39;s make friend edges and let&#39;s make likes edges.
+
+744
+00:24:44:000 --> 00:24:47:000
+So, let&#39;s say, for example, Amy likes Ben.
+
+745
+00:24:48:000 --> 00:24:49:000
+So that would be a directed edge
+
+746
+00:24:50:000 --> 00:24:51:000
+here with the property likes,
+
+747
+00:24:51:000 --> 00:24:53:000
+and maybe Ben likes
+
+748
+00:24:53:000 --> 00:24:54:000
+Carol, let&#39;s say here.
+
+749
+00:24:54:000 --> 00:24:56:000
+And maybe then we
+
+750
+00:24:56:000 --> 00:24:59:000
+have that Amy and
+
+751
+00:24:59:000 --> 00:25:01:000
+Carol are both friends with
+
+752
+00:25:01:000 --> 00:25:02:000
+each other so we&#39;ll have
+
+753
+00:25:03:000 --> 00:25:04:000
+a different type of edge called friend.
+
+754
+00:25:05:000 --> 00:25:06:000
+Now, one might wonder how
+
+755
+00:25:06:000 --> 00:25:08:000
+long those friendships will last
+
+756
+00:25:08:000 --> 00:25:09:000
+with this complicated likes relationship.
+
+757
+00:25:10:000 --> 00:25:11:000
+But, in any case, this gives
+
+758
+00:25:11:000 --> 00:25:12:000
+you an idea of the
+
+759
+00:25:12:000 --> 00:25:14:000
+type of data that&#39;s stored in a graph database.
+
+760
+00:25:15:000 --> 00:25:16:000
+The data model is very specifically
+
+761
+00:25:17:000 --> 00:25:19:000
+about storing nodes with properties
+
+762
+00:25:19:000 --> 00:25:21:000
+inside them, like key value
+
+763
+00:25:21:000 --> 00:25:22:000
+pairs and edges
+
+764
+00:25:22:000 --> 00:25:24:000
+typically with labels or rolls
+
+765
+00:25:24:000 --> 00:25:25:000
+on them, of course that&#39;s not required.
+
+766
+00:25:27:000 --> 00:25:28:000
+So in graph database systems, currently,
+
+767
+00:25:29:000 --> 00:25:30:000
+the interfaces to the systems
+
+768
+00:25:31:000 --> 00:25:32:000
+and the query languages vary a lot.
+
+769
+00:25:32:000 --> 00:25:34:000
+There&#39;s no standardization at all
+
+770
+00:25:35:000 --> 00:25:36:000
+and the queries might just be
+
+771
+00:25:37:000 --> 00:25:38:000
+single-step queries like asking for friends.
+
+772
+00:25:39:000 --> 00:25:41:000
+They might be path expressions like,
+
+773
+00:25:41:000 --> 00:25:44:000
+ask for the women friends, of the men friends of someone.
+
+774
+00:25:44:000 --> 00:25:46:000
+We saw that example in the earlier video.
+
+775
+00:25:46:000 --> 00:25:48:000
+Or they might have full recursion, where
+
+776
+00:25:48:000 --> 00:25:49:000
+you can traverse to arbitrary
+
+777
+00:25:50:000 --> 00:25:51:000
+depths through the graph.
+
+778
+00:25:52:000 --> 00:25:55:000
+A few example systems, again, as
+
+779
+00:25:55:000 --> 00:25:56:000
+of November, 2011, you know I
+
+780
+00:25:56:000 --> 00:25:57:000
+was going to say that, are
+
+781
+00:25:57:000 --> 00:26:00:000
+a Neo4J, Flat DB and Prego.
+
+782
+00:26:01:000 --> 00:26:03:000
+And these systems actually differ quite a lot from each other.
+
+783
+00:26:03:000 --> 00:26:05:000
+I also wanted to mention RDF.
+
+784
+00:26:06:000 --> 00:26:07:000
+RDF is the resource description
+
+785
+00:26:08:000 --> 00:26:09:000
+framework, and there&#39;s something
+
+786
+00:26:10:000 --> 00:26:12:000
+known as the RDF triple stores.
+
+787
+00:26:13:000 --> 00:26:15:000
+RDF is based on objects
+
+788
+00:26:15:000 --> 00:26:17:000
+having relationships to other objects.
+
+789
+00:26:17:000 --> 00:26:18:000
+So you can almost think of those
+
+790
+00:26:18:000 --> 00:26:19:000
+as two nodes with edges
+
+791
+00:26:20:000 --> 00:26:20:000
+between them, so you can
+
+792
+00:26:21:000 --> 00:26:23:000
+imagine how RDF can be mapped to graph databases.
+
+793
+00:26:25:000 --> 00:26:27:000
+So, those were four examples of NoSQL systems.
+
+794
+00:26:29:000 --> 00:26:30:000
+If the most prominent categories
+
+795
+00:26:30:000 --> 00:26:31:000
+at this point in time, the
+
+796
+00:26:31:000 --> 00:26:33:000
+MapReduce framework, again with
+
+797
+00:26:34:000 --> 00:26:35:000
+languages sitting on top
+
+798
+00:26:35:000 --> 00:26:36:000
+of MapReduce such as
+
+799
+00:26:36:000 --> 00:26:38:000
+Hive and Pig, key value
+
+800
+00:26:39:000 --> 00:26:40:000
+stores for more small
+
+801
+00:26:40:000 --> 00:26:43:000
+transactions over massive databases
+
+802
+00:26:43:000 --> 00:26:45:000
+but just operating small bits of them at once.
+
+803
+00:26:46:000 --> 00:26:48:000
+Document stores, and graph database systems.
+
+804
+00:26:49:000 --> 00:26:50:000
+NoSQL stands for not
+
+805
+00:26:50:000 --> 00:26:52:000
+only sql, recognizing that
+
+806
+00:26:52:000 --> 00:26:54:000
+for some applications these frameworks
+
+807
+00:26:55:000 --> 00:26:57:000
+work better than traditional database
+
+808
+00:26:57:000 --> 00:26:58:000
+systems, but for many applications
+
+809
+00:26:59:000 --> 00:27:00:000
+- a vast number of
+
+810
+00:27:00:000 --> 00:27:03:000
+applications - traditional databases are still used.
 
